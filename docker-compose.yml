@@ -1,0 +1,54 @@
+version: "3.0"
+
+services:
+  rasa:
+    image: rasa/rasa:3.6.20
+    ports:
+      - "5005:5005"
+    volumes:
+      - ./:/app
+    command:
+      - run
+      - --enable-api
+      - --cors
+      - "*"
+    depends_on:
+      - action_server
+      - mongodb
+    environment:
+      - MONGO_URL=mongodb://mongodb:27017/rasa
+    networks:
+      - rasa_network
+
+  action_server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./actions:/app/actions
+      - ./scripts:/app/scripts
+    ports:
+      - "5055:5055"
+    depends_on:
+      - mongodb
+    environment:
+      - MONGO_URL=mongodb://mongodb:27017/rasa
+    networks:
+      - rasa_network
+
+  mongodb:
+    image: mongo:6.0
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - rasa_network
+
+volumes:
+  mongo_data:
+
+networks:
+  rasa_network:
+    driver: bridge

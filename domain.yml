@@ -1,0 +1,65 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - company_info
+  - working_hours
+  - contact_info
+  - product_info
+  - pricing
+  - demo_request
+  - tech_support
+  - warranty_policy
+  - promotion
+  - partner_request
+
+entities:
+  - product
+  - time
+  - contact
+  - location
+  - price
+  - error_type
+
+responses:
+  utter_greet:
+    - text: "Chào bạn 👋! Mình là chatbot hỗ trợ khách hàng của công ty V2S. Mình có thể giúp gì cho bạn hôm nay?"
+
+  utter_goodbye:
+    - text: "Cảm ơn bạn đã liên hệ. Hẹn gặp lại 👋"
+
+  utter_company_info:
+    - text: "Công ty Cổ phần Công nghệ Số V2S chuyên phát triển phần mềm quản lý doanh nghiệp, ERP và các giải pháp số hóa cho doanh nghiệp."
+
+  utter_working_hours:
+    - text: "Công ty làm việc từ 8h00 đến 17h30, từ thứ 2 đến thứ 6. Thứ 7 hỗ trợ online."
+
+  utter_contact_info:
+    - text: "Bạn có thể liên hệ qua hotline: 024-6686-4555 hoặc email: contact@vanvietsoft.com"
+
+  utter_product_info:
+    - text: "V2S cung cấp các sản phẩm như: phần mềm hóa đơn điện tử, ERP, CRM và các giải pháp tùy chỉnh cho doanh nghiệp."
+
+  utter_pricing:
+    - text: "Giá sản phẩm tùy theo gói dịch vụ và nhu cầu. Bạn có thể để lại email để nhận báo giá chi tiết."
+
+  utter_demo_request:
+    - text: "Bạn có thể đăng ký demo phần mềm tại website https://vanvietsoft.com hoặc gửi yêu cầu qua email contact@vanvietsoft.com"
+
+  utter_tech_support:
+    - text: "Bạn vui lòng mô tả lỗi chi tiết. Đội kỹ thuật V2S sẽ hỗ trợ qua hotline hoặc remote."
+
+  utter_warranty_policy:
+    - text: "Các phần mềm của V2S có chính sách bảo hành tối thiểu 12 tháng và hỗ trợ bảo trì định kỳ."
+
+  utter_promotion:
+    - text: "Hiện tại V2S đang có chương trình ưu đãi 20% cho khách hàng doanh nghiệp mới!"
+
+  utter_partner_request:
+    - text: "Cảm ơn bạn đã quan tâm! Vui lòng gửi thông tin hợp tác qua email business@vanvietsoft.com để được hỗ trợ."
+
+actions:
+  - action_get_time
+  - action_get_weather
+  - action_suggest_topics

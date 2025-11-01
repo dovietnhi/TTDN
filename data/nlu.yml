@@ -1,0 +1,82 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - Xin chào
+    - Hello
+    - Chào buổi sáng
+    - Chào bạn
+    - Hi
+
+- intent: goodbye
+  examples: |
+    - Tạm biệt
+    - Hẹn gặp lại
+    - Bye
+    - Chào nhé
+
+- intent: company_info
+  examples: |
+    - Công ty V2S là gì?
+    - Cho tôi biết thông tin về công ty
+    - V2S hoạt động trong lĩnh vực nào?
+    - Công ty ở đâu?
+
+- intent: working_hours
+  examples: |
+    - Giờ làm việc của công ty là từ mấy giờ?
+    - Công ty có làm việc cuối tuần không?
+    - Thời gian làm việc của V2S là bao nhiêu?
+
+- intent: contact_info
+  examples: |
+    - Cho tôi xin hotline
+    - Email hỗ trợ là gì?
+    - Liên hệ với công ty bằng cách nào?
+    - Zalo chăm sóc khách hàng của V2S là gì?
+
+
+- intent: product_info
+  examples: |
+    - Bên bạn có phần mềm [hóa đơn điện tử](product) không?
+    - Công ty có dịch vụ [ERP](product) không?
+    - Có giải pháp [CRM](product) không?
+    - V2S cung cấp phần mềm gì?
+
+- intent: pricing
+  examples: |
+    - Giá phần mềm là bao nhiêu?
+    - Chi phí dịch vụ [ERP](product) là bao nhiêu?
+    - Có bản miễn phí không?
+    - Phần mềm [CRM](product) giá bao nhiêu?
+
+- intent: demo_request
+  examples: |
+    - Tôi muốn dùng thử phần mềm
+    - Có bản demo không?
+    - Làm sao để đăng ký demo?
+
+- intent: tech_support
+  examples: |
+    - Phần mềm bị lỗi thì làm sao?
+    - Tôi không đăng nhập được vào hệ thống
+    - Bị [cài đặt thất bại](error_type)
+    - Có hỗ trợ remote không?
+
+- intent: warranty_policy
+  examples: |
+    - Phần mềm được bảo hành bao lâu?
+    - Có bảo trì định kỳ không?
+    - Chính sách bảo hành thế nào?
+
+- intent: promotion
+  examples: |
+    - Hiện tại có chương trình giảm giá không?
+    - Có khuyến mãi nào cho khách hàng mới không?
+    - Đang có ưu đãi gì?
+
+- intent: partner_request
+  examples: |
+    - Tôi muốn hợp tác phân phối sản phẩm
+    - Làm sao để trở thành đối tác của V2S?
+    - Tôi muốn làm đại lý
