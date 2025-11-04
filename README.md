@@ -99,10 +99,10 @@ xhr poll error / 404 socket.io	Rasa chưa bật SocketIO	Thêm block socketio: t
 ModuleNotFoundError	Thiếu thư viện	Kiểm tra và cài bằng pip install -r requirements.txt
 👨‍💻 Liên hệ
 
-Tác giả: Tên bạn
-Email: [your_email@example.com
+Tác giả: DoVietNhi
+Email: l@example.com
 ]
-GitHub: [github.com/yourusername]
+GitHub: [dovietnhi]
 
 
 ---
