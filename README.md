@@ -42,10 +42,6 @@ Huấn luyện mô hình:
 docker compose run rasa train
 docker compose up --build
 
-docker run -it -v "D:\chatbot-app:/app" chatbot-demo train
-docker run -it -v "$(pwd):/app" rasa-core train
-
-
 Chạy chatbot:
 
 Restart lại Rasa server

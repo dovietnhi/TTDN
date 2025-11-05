@@ -5,34 +5,6 @@
     <title>Chatbot Demo</title>
     <script src="https://cdn.jsdelivr.net/npm/rasa-webchat/lib/index.js"></script>
     <style>
-      /* nhỏ gọn: nút xem lịch sử */
-      #historyBtn {
-        position: fixed;
-        right: 20px;
-        bottom: 120px;
-        z-index: 9999;
-        background: #1976d2;
-        color: white;
-        border: none;
-        padding: 8px 12px;
-        border-radius: 6px;
-        cursor: pointer;
-      }
-      #historyModal {
-        display: none;
-        position: fixed;
-        right: 20px;
-        bottom: 170px;
-        width: 320px;
-        max-height: 400px;
-        overflow: auto;
-        background: white;
-        border: 1px solid #ddd;
-        box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-        padding: 10px;
-        z-index: 10000;
-      }
-      #historyModal h4 { margin: 0 0 8px 0; }
       /* Định dạng tổng thể */
       .rw-message {
         display: flex !important;
@@ -40,32 +12,9 @@
         align-items: flex-start;
         margin-bottom: 8px;
       }
-
       /* Tin nhắn của người dùng */
       .rw-message.rw-client {
         align-items: flex-end;
-      }
-
-      /* Thời gian chung */
-      .timestamp {
-        font-size: 11px;
-        margin-top: 3px;
-        width: 100%;
-        display: block;
-      }
-
-      /* Thời gian của bot */
-      .rw-message:not(.rw-client) .timestamp {
-        text-align: left;
-        color: #999;
-        margin-left: 6px;
-      }
-
-      /* Thời gian của user */
-      .rw-message.rw-client .timestamp {
-        text-align: right;
-        color: #0d6efd;
-        margin-right: 6px;
       }
     </style>
   </head>

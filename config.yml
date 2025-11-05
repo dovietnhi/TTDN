@@ -1,18 +1,36 @@
 language: vi
+recipe: default.v1
+
 pipeline:
-- name: WhitespaceTokenizer
-- name: RegexFeaturizer
-- name: LexicalSyntacticFeaturizer
-- name: CountVectorsFeaturizer
-- name: DIETClassifier
-  epochs: 100
-- name: EntitySynonymMapper
-- name: ResponseSelector
-  epochs: 100
+  - name: WhitespaceTokenizer
+  - name: RegexFeaturizer
+  - name: LexicalSyntacticFeaturizer
+  - name: LanguageModelFeaturizer
+    model_name: "bert"
+    model_weights: "bert-base-multilingual-cased"
+  - name: CountVectorsFeaturizer
+    analyzer: word
+    min_ngram: 1
+    max_ngram: 2
+  - name: CountVectorsFeaturizer
+    analyzer: char_wb
+    min_ngram: 3
+    max_ngram: 5
+  - name: DIETClassifier
+    epochs: 150
+    learning_rate: 0.002
+    constrain_similarities: true
+    batch_strategy: sequence
+  - name: EntitySynonymMapper
+  - name: ResponseSelector
+    epochs: 120
+  - name: FallbackClassifier
+    threshold: 0.35
+    ambiguity_threshold: 0.1
 
 policies:
-- name: MemoizationPolicy
-- name: RulePolicy
-- name: TEDPolicy
-  epochs: 60
-assistant_id: 20251017-084117-loyal-chateau
+  - name: MemoizationPolicy
+  - name: RulePolicy
+  - name: TEDPolicy
+    epochs: 100
+    max_history: 5

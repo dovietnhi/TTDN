@@ -11,6 +11,11 @@ stories:
     - intent: company_info
     - action: utter_company_info
     - action: action_suggest_topics
+  - story: hỏi địa chỉ công ty
+    steps:
+    - intent: ask_company_location
+    - action: utter_company_location
+    - action: action_suggest_topics
   - story: hỏi giờ làm việc
     steps:
     - intent: working_hours
@@ -25,6 +30,11 @@ stories:
     steps:
     - intent: product_info
     - action: utter_product_info
+    - action: action_suggest_topics
+  - story: hỏi thông tin sản phẩm cụ thể
+    steps:
+    - intent: ask_product_info
+    - action: utter_ask_product_info
     - action: action_suggest_topics
   - story: hỏi giá
     steps:
@@ -41,6 +51,11 @@ stories:
     - intent: tech_support
     - action: utter_tech_support
     - action: action_suggest_topics
+  - story: hỏi hỗ trợ remote
+    steps:
+    - intent: ask_remote_support
+    - action: utter_ask_remote_support
+    - action: action_suggest_topics
   - story: chính sách bảo hành
     steps:
     - intent: warranty_policy
@@ -56,6 +71,7 @@ stories:
     - intent: partner_request
     - action: utter_partner_request
     - action: action_suggest_topics
+  
   - story: goodbye
     steps:
     - intent: goodbye

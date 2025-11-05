@@ -21,7 +21,6 @@ nlu:
     - Chào cậu nha
     - Bot ơi
     - Chào ad
-    - Chào nhé
     - Chào, cho mình hỏi xíu
     - Chào bot, mình cần hỗ trợ
     - Hello, mình mới vào
@@ -82,7 +81,6 @@ nlu:
     - Công ty V2S là gì?
     - Cho tôi biết thông tin về công ty
     - V2S hoạt động trong lĩnh vực nào?
-    - Công ty ở đâu?
     - Bạn có thể chia sẻ một chút về các sản phẩm/dịch vụ chính của công ty không?
     - Cho mình hỏi một chút về công ty bên bạn được không?
     - Bạn có thể giới thiệu sơ qua về công ty mình không?
@@ -116,15 +114,30 @@ nlu:
     - Công ty có những sản phẩm hoặc dịch vụ chính nào?
     - Văn Việt cung cấp giải pháp trong lĩnh vực nào?
     - Mình đang muốn biết thêm về các hoạt động của công ty.
-    - Công ty được thành lập từ khi nào vậy?
     - Bên bạn có thể nói qua về sứ mệnh hoặc mục tiêu của công ty không?
     - Cho hỏi Công ty phần mềm Văn Việt là công ty gì?
     - Mình nghe nói đến Công ty Văn Việt, bạn giới thiệu thêm được không?
     - Bên bạn đang cung cấp dịch vụ cho lĩnh vực nào?
-    - Công ty có trụ sở ở đâu vậy?
     - Mình muốn biết thêm về đội ngũ và năng lực của công ty.
     - Công ty mình thuộc loại hình doanh nghiệp nào?
     - Có thể cho mình biết thêm về Công ty TNHH Phát triển phần mềm Văn Việt không?
+- intent: ask_company_location
+  examples: |
+    - Công ty địa chỉ ở đâu vậy?
+    - Địa chỉ văn phòng của công ty là gì?
+    - Cho tôi biết địa chỉ trụ sở chính của V2S
+    - Công ty có văn phòng ở Hà Nội không?
+    - Bên bạn có thể cho mình biết địa chỉ công ty được không?
+    - Mình muốn ghé thăm công ty, địa chỉ ở đâu vậy bạn?
+    - Công ty có chi nhánh nào khác không?
+    - Cho mình xin địa chỉ văn phòng của Công ty phần mềm Văn Việt.
+    - Mình muốn biết địa chỉ trụ sở chính của công ty.
+    - Bên bạn có thể cung cấp địa chỉ văn phòng không?
+    - Công ty có văn phòng đại diện ở thành phố khác không?
+    - Mình muốn đến thăm công ty, cho mình xin địa chỉ nhé.
+    - Địa chỉ công ty bạn nằm ở khu vực nào vậy?
+    - Bên bạn có thể cho mình biết địa chỉ trụ sở chính được không?
+    - Mình muốn biết địa chỉ văn phòng của Công ty phần mềm Văn Việt.
 - intent: working_hours
   examples: |
     - Giờ làm việc của công ty là từ mấy giờ?
@@ -237,6 +250,18 @@ nlu:
     - Mình muốn biết về các sản phẩm phần mềm của bên bạn.
     - Bên bạn có phần mềm quản lý nhân sự không?
     - Công ty có cung cấp phần mềm quản lý bán hàng không?
+
+- intent: ask_product_info
+  examples: |
+    - Mình muốn biết thêm về các giải pháp phần mềm tùy chỉnh cho doanh nghiệp
+    - Công ty có phần mềm nào hỗ trợ quản lý vận hành doanh nghiệp không?
+    - V2S đang cung cấp các sản phẩm phần mềm nào?
+    - Bên bạn có cung cấp ERP hay CRM không?
+    - Công ty có giải pháp phần mềm quản lý riêng cho doanh nghiệp không?
+    - Mình muốn biết thêm về phần mềm hóa đơn điện tử của V2S
+    - Các phần mềm chính bên công ty gồm những gì?
+    - V2S có thiết kế phần mềm theo yêu cầu không?
+    
 - intent: pricing
   examples: |
     - Giá phần mềm là bao nhiêu?
@@ -335,7 +360,7 @@ nlu:
     - Phần mềm được bảo hành bao lâu?
     - Có bảo trì định kỳ không?
     - Chính sách bảo hành thế nào?
-     Bên bạn có chính sách bảo hành phần mềm không?
+    - Bên bạn có chính sách bảo hành phần mềm không?
     - Cho mình hỏi thời gian bảo hành là bao lâu?
     - Phần mềm có được bảo hành sau khi bàn giao không?
     - Bên công ty có hỗ trợ bảo trì định kỳ không?
@@ -438,5 +463,15 @@ nlu:
     - Tôi muốn thảo luận cơ hội hợp tác giữa hai bên.
     - Tôi là công ty phần mềm, muốn hợp tác triển khai giải pháp với bên bạn.
     - Muốn đăng ký làm đối tác cung cấp dịch vụ phần cứng.
-    
+- intent: ask_remote_support
+  examples: |
+    - Mình muốn được hỗ trợ remote
+    - Có thể remote giúp mình không?
+    - Bên bạn hỗ trợ từ xa qua TeamViewer không?
+    - Cho mình xin hỗ trợ kỹ thuật remote
+    - Muốn kỹ thuật viên điều khiển máy mình giúp
+    - Bên bạn có hỗ trợ kỹ thuật từ xa không?
+    - Mình cần hỗ trợ kỹ thuật qua phần mềm điều khiển từ xa
+    - Có thể giúp mình sửa lỗi qua TeamViewer được không?
+    - Mình muốn nhờ kỹ thuật viên bên bạn hỗ trợ remote
     
