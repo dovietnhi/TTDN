@@ -78,225 +78,135 @@ nlu:
     - Cảm ơn bạn, hẹn gặp lại sau!
 - intent: company_info
   examples: |
-    - Công ty V2S là gì?
-    - Cho tôi biết thông tin về công ty
-    - V2S hoạt động trong lĩnh vực nào?
-    - Bạn có thể chia sẻ một chút về các sản phẩm/dịch vụ chính của công ty không?
-    - Cho mình hỏi một chút về công ty bên bạn được không?
-    - Bạn có thể giới thiệu sơ qua về công ty mình không?
-    - Mình muốn tìm hiểu thêm về công ty, bạn có thể giúp không?
-    - Công ty mình hoạt động trong lĩnh vực gì vậy bạn?
-    - Cho mình biết thêm thông tin chung về doanh nghiệp nhé.
-    - Bên mình đang kinh doanh những sản phẩm hoặc dịch vụ nào?
-    - Công ty có đối tác hoặc khách hàng chính là ai vậy bạn?
-    - Mình muốn biết thêm một chút về công ty mình, bạn chia sẻ giúp nhé.
-    - Bạn có thể cung cấp một số thông tin cơ bản về công ty mình không?
-    - Bên mình có thể cho mình xem thông tin chính thức của công ty được không?
-    - Mình muốn hiểu thêm về định hướng phát triển của công ty trong thời gian tới.
-    - Cho mình hỏi đôi chút về Công ty phần mềm Văn Việt được không?
-    - Bên mình có thể giới thiệu sơ qua về Công ty phần mềm Văn Việt không?
-    - Mình muốn tìm hiểu về Công ty phần mềm Văn Việt, bạn có thể giúp không?
-    - Mình muốn tìm hiểu thêm về công ty, bạn có thể chia sẻ thông tin cơ bản không?
-    - Công ty phần mềm Văn Việt hoạt động chính trong lĩnh vực nào vậy?
-    - Cho mình biết thêm thông tin tổng quan về công ty được không?
-    - Mình muốn biết về các sản phẩm và dịch vụ mà công ty cung cấp.
-    - Bên Văn Việt đang cung cấp những giải pháp CNTT nào vậy?
-    - Mình quan tâm đến dịch vụ phát triển phần mềm, bạn có thể cho biết thêm chi tiết không?
-    - Công ty có nhận thiết kế và triển khai phần mềm theo yêu cầu không?
-    - Mình đang cần tư vấn hệ thống CNTT, bên bạn có hỗ trợ mảng này không?
-    - Văn Việt có giải pháp nào dành riêng cho khối nhà nước hoặc giáo dục không?
-    - Bạn có thể giới thiệu sơ qua về Công ty phần mềm Văn Việt không?
-    - Mình muốn tìm hiểu thêm về công ty, bạn chia sẻ giúp nhé.
-    - Công ty phần mềm Văn Việt hoạt động chính trong lĩnh vực gì vậy?
-    - Bên Văn Việt chuyên về mảng nào thế?
-    - Mình muốn biết thêm về công ty bên bạn.
-    - Bên bạn làm về phần mềm gì vậy?
-    - Công ty có những sản phẩm hoặc dịch vụ chính nào?
-    - Văn Việt cung cấp giải pháp trong lĩnh vực nào?
-    - Mình đang muốn biết thêm về các hoạt động của công ty.
-    - Bên bạn có thể nói qua về sứ mệnh hoặc mục tiêu của công ty không?
-    - Cho hỏi Công ty phần mềm Văn Việt là công ty gì?
-    - Mình nghe nói đến Công ty Văn Việt, bạn giới thiệu thêm được không?
-    - Bên bạn đang cung cấp dịch vụ cho lĩnh vực nào?
-    - Mình muốn biết thêm về đội ngũ và năng lực của công ty.
-    - Công ty mình thuộc loại hình doanh nghiệp nào?
-    - Có thể cho mình biết thêm về Công ty TNHH Phát triển phần mềm Văn Việt không?
+    - [V2S](organization) hoạt động trong [lĩnh vực](info_type) nào?
+    - Cho tôi biết [sản phẩm](info_type) của [Công ty Văn Việt](organization)
+    - [Công ty V2S](organization) có [dịch vụ](info_type) gì không?
+    - [Văn Việt](organization) chuyên về [ERP](info_type) đúng không?
+    - Mình muốn biết thêm về [định hướng phát triển](info_type) của [V2S](organization)
+    - [Công ty](organization) mình làm về [CRM](info_type) à?
+    - [V2S](organization) có nhận [phát triển phần mềm theo yêu cầu](info_type) không?
+    - Công ty bạn làm trong lĩnh vực gì?
+    - Bên bạn cung cấp những dịch vụ nào?
+    - Cho mình biết công ty hoạt động ở mảng nào?
+    - Bên mình có làm phần mềm theo yêu cầu không?
+    - Bên bạn có những sản phẩm gì?
+    - V2S chuyên về giải pháp gì?
+    - Văn Việt có làm hệ thống quản lý doanh nghiệp không?
+
 - intent: ask_company_location
   examples: |
-    - Công ty địa chỉ ở đâu vậy?
-    - Địa chỉ văn phòng của công ty là gì?
-    - Cho tôi biết địa chỉ trụ sở chính của V2S
-    - Công ty có văn phòng ở Hà Nội không?
-    - Bên bạn có thể cho mình biết địa chỉ công ty được không?
-    - Mình muốn ghé thăm công ty, địa chỉ ở đâu vậy bạn?
-    - Công ty có chi nhánh nào khác không?
-    - Cho mình xin địa chỉ văn phòng của Công ty phần mềm Văn Việt.
-    - Mình muốn biết địa chỉ trụ sở chính của công ty.
-    - Bên bạn có thể cung cấp địa chỉ văn phòng không?
-    - Công ty có văn phòng đại diện ở thành phố khác không?
-    - Mình muốn đến thăm công ty, cho mình xin địa chỉ nhé.
-    - Địa chỉ công ty bạn nằm ở khu vực nào vậy?
-    - Bên bạn có thể cho mình biết địa chỉ trụ sở chính được không?
-    - Mình muốn biết địa chỉ văn phòng của Công ty phần mềm Văn Việt.
+    - Công ty [địa chỉ](company_address) ở đâu vậy?
+    - [Địa chỉ](company_address) văn phòng của công ty là gì?
+    - Cho tôi biết địa chỉ [trụ sở](company_address) chính của V2S
+    - Công ty có văn phòng ở [Hà Nội](company_address) không?
+    - Bên bạn có thể cho mình biết [địa chỉ](company_address) công ty được không?
+    - Mình muốn ghé thăm công ty, [địa chỉ](company_address) ở đâu vậy bạn?
+    - Công ty có chi nhánh nào ở [TP.HCM](company_address) không?
+    - Công ty ở đâu vậy?
+    - Cho mình hỏi công ty đặt ở khu vực nào?
+    - Mình muốn biết trụ sở của công ty nằm ở đâu
+    - Bên bạn có văn phòng không?
+    - Công ty có chi nhánh ở tỉnh khác không?
+
 - intent: working_hours
   examples: |
     - Giờ làm việc của công ty là từ mấy giờ?
-    - Công ty có làm việc cuối tuần không?
+    - Công ty có làm việc [cuối tuần](work_time_period) không?
     - Thời gian làm việc của V2S là bao nhiêu?
-    - Giờ làm việc của công ty là khi nào vậy?
-    - Bên bạn làm việc từ mấy giờ đến mấy giờ?
-    - Công ty mở cửa lúc mấy giờ?
-    - Cho mình hỏi thời gian làm việc của Công ty phần mềm Văn Việt.
-    - Bên bạn có làm việc cuối tuần không?
-    - Giờ hành chính bên mình là khung nào thế?
-    - Văn Việt làm việc vào những ngày nào trong tuần?
-    - Mình có thể liên hệ trong giờ nào thì có người phản hồi?
-    - Bên bạn có làm việc buổi tối không?
-    - Thời gian làm việc tại Công ty phần mềm Văn Việt là bao lâu?
-    - Công ty có nghỉ trưa không?
-    - Mình muốn biết lịch làm việc của công ty.
+    - Bên bạn có làm việc vào [thứ 7](work_time_period) không?
+    - Bên bạn có làm việc [buổi tối](work_time_period) không?
     - Khi nào thì bộ phận hỗ trợ khách hàng hoạt động?
-    - Bên bạn có làm việc thứ 7 không?
-    - Giờ làm việc ở văn phòng bên bạn là mấy giờ?
-    - Bên công ty có làm việc 24/7 không vậy?
-    - Cho hỏi Văn Việt có làm ngoài giờ hành chính không?
-    - Mình cần biết khung giờ liên hệ thuận tiện với công ty.
-    - Công ty hoạt động vào khung giờ nào?
-    - Bên bạn có làm việc vào dịp lễ không?
-    - Mình muốn biết giờ làm việc cụ thể của công ty.
-    - Công ty có làm việc vào buổi tối không?
-    - Bên bạn có hỗ trợ khách hàng ngoài giờ hành chính không?
+    - Bên công ty có làm việc [24/7](work_time_period) không vậy?
+    - Bên bạn có làm việc vào [ngày lễ](work_time_period) không?
+    - Văn Việt làm việc vào những [ngày trong tuần](work_time_period) nào?
+    - Công ty có nghỉ [trưa](work_time_period) không?
+    - Cho mình hỏi giờ làm việc của công ty
+    - Khi nào công ty mở cửa?
+    - Công ty làm việc từ mấy giờ đến mấy giờ vậy?
+    - Bên bạn có làm việc hôm nay không?
+    - Mình muốn biết thời gian làm việc của V2S
+
 - intent: contact_info
   examples: |
-    - Cho tôi xin hotline
-    - Email hỗ trợ là gì?
-    - Liên hệ với công ty bằng cách nào?
-    - Zalo chăm sóc khách hàng của V2S là gì?
-    - Cho mình xin thông tin liên hệ của Công ty phần mềm Văn Việt.
-    - Mình muốn biết cách liên hệ với công ty.
-    - Số điện thoại bên bạn là gì vậy?
-    - Bên bạn có email liên hệ không?
-    - Cho mình hỏi địa chỉ văn phòng của công ty ở đâu?
-    - Mình muốn ghé trực tiếp, công ty ở đâu thế?
-    - Công ty có trụ sở ở Hà Nội không?
-    - Cho mình xin thông tin của bộ phận hỗ trợ khách hàng nhé.
-    - Bên bạn có tổng đài hoặc hotline không?
-    - Làm sao để liên hệ với bên bạn?
-    - Mình cần liên hệ bộ phận kỹ thuật, cho xin số nhé.
-    - Có thể gửi giúp mình địa chỉ website của công ty được không?
-    - Công ty có fanpage hoặc kênh hỗ trợ trực tuyến nào không?
-    - Email chăm sóc khách hàng của bên bạn là gì?
-    - Cho mình xin thông tin liên hệ chính thức của Công ty Văn Việt.
-    - Bên bạn có làm việc qua Zalo hay Telegram không?
-    - Mình muốn gửi hồ sơ hợp tác, gửi qua đâu được vậy?
-    - Cho mình biết cách để liên hệ nhanh nhất với công ty nhé.
-    - Văn phòng công ty nằm ở đâu vậy bạn?
-    - Có thể cho mình địa chỉ và số điện thoại liên hệ không?
-    - Mình muốn biết thông tin liên hệ của bộ phận kinh doanh.
-    - Bên bạn có hỗ trợ qua Facebook Messenger không?
-    - Mình cần liên hệ gấp, cho mình số điện thoại nhé.
-    - Công ty có địa chỉ email hỗ trợ khách hàng không?
-    - Mình muốn biết thông tin liên hệ của Công ty phần mềm Văn Việt.
-    - Bên bạn có số điện thoại hoặc email liên hệ không?
-    - Cho mình xin thông tin liên hệ của công ty.
-    - Mình muốn biết cách liên hệ với công ty bên bạn.
-    - Số điện thoại liên hệ của công ty là gì vậy?
+    - Cho tôi xin [hotline](contact_type)
+    - [Email](contact_type) hỗ trợ là gì?
+    - Liên hệ với công ty bằng [số điện thoại](contact_type) nào?
+    - [Zalo](contact_type) chăm sóc khách hàng của V2S là gì?
+    - Cho mình xin [địa chỉ](contact_type) văn phòng
+    - Bên bạn có [website](contact_type) không?
+    - Mình muốn gửi hồ sơ qua [email](contact_type)
+    - Cho mình biết [fanpage](contact_type) của công ty
+    - Làm sao để liên hệ qua [tổng đài](contact_type)?
+    - Cho tôi thông tin về [telegram](contact_type) hỗ trợ
+    - Bên bạn có hỗ trợ qua [messenger](contact_type) không?
+    - Làm sao để liên hệ với công ty?
+    - Cho mình xin thông tin liên hệ của V2S
+    - Công ty có hỗ trợ khách hàng qua kênh nào không?
+    - Mình muốn liên hệ với bộ phận chăm sóc khách hàng
+    - Làm sao để gửi phản hồi cho công ty?
 
 - intent: product_info
   examples: |
     - Bên bạn có phần mềm [hóa đơn điện tử](product) không?
     - Công ty có dịch vụ [ERP](product) không?
     - Có giải pháp [CRM](product) không?
-    - V2S cung cấp phần mềm gì?
-    - Bên bạn đang cung cấp những sản phẩm gì vậy?
-    - Công ty phần mềm Văn Việt có những phần mềm nào?
-    - Cho mình hỏi công ty đang phát triển sản phẩm gì?
-    - Văn Việt hiện có bao nhiêu sản phẩm phần mềm?
-    - Bên bạn có phần mềm quản lý giáo dục không?
-    - Mình muốn tìm hiểu các sản phẩm nổi bật của công ty.
-    - Công ty có phần mềm dành cho khối nhà nước không?
-    - Có thể giới thiệu cho mình các giải pháp phần mềm của Văn Việt không?
-    - Bên bạn có sản phẩm phần mềm quản lý hành chính không?
-    - Cho mình xem danh sách sản phẩm của công ty.
-    - Văn Việt có những giải pháp nào hỗ trợ doanh nghiệp?
-    - Công ty có phần mềm riêng cho quản lý nhân sự không?
-    - Mình quan tâm đến phần mềm quản lý, bên bạn có cung cấp không?
-    - Các phần mềm bên bạn đã triển khai cho khách hàng nào rồi?
-    - Bên công ty có cung cấp phần mềm theo yêu cầu không?
-    - Có thể cho mình biết chi tiết về sản phẩm chủ lực của công ty không?
-    - Bên bạn có demo hoặc giới thiệu phần mềm mẫu không?
-    - Mình muốn biết thêm về các giải pháp công nghệ mà Văn Việt đang phát triển.
-    - Công ty có phần mềm nào mới ra mắt không?
-    - Văn Việt hiện tập trung phát triển dòng sản phẩm nào?
-    - Mình muốn tìm hiểu về các sản phẩm phần mềm của công ty.
-    - Bên bạn có cung cấp phần mềm quản lý bán hàng không?
-    - Cho mình hỏi về các sản phẩm phần mềm mà công ty đang phát triển.
-    - Mình muốn biết thêm về giải pháp ERP của bên bạn.
-    - Công ty có phần mềm quản lý kho không?
-    - Bên bạn có thể giới thiệu về phần mềm hóa đơn điện tử được không?
-    - Mình muốn tìm hiểu về các sản phẩm của Công ty phần mềm Văn Việt.
-    - Bên bạn đang cung cấp những phần mềm gì vậy?
-    - Công ty có những sản phẩm phần mềm nào?
-    - Văn Việt có giải pháp phần mềm nào nổi bật không?
-    - Mình muốn biết về các sản phẩm phần mềm của công ty.
-    - Bên bạn có phần mềm quản lý doanh nghiệp không?
-    - Công ty có cung cấp giải pháp phần mềm nào cho doanh nghiệp không?
-    - Mình muốn tìm hiểu về phần mềm ERP của bên bạn.
-    - Bên bạn có thể giới thiệu về các sản phẩm phần mềm được không?
-    - Mình muốn biết thêm về các giải pháp phần mềm của Công ty phần mềm Văn Việt.
-    - Bên bạn đang phát triển những sản phẩm phần mềm gì vậy?
-    - Mình muốn tìm hiểu về các sản phẩm của bên bạn.
-    - Công ty có những giải pháp phần mềm nào nổi bật không?
-    - Mình muốn biết về các sản phẩm phần mềm của bên bạn.
-    - Bên bạn có phần mềm quản lý nhân sự không?
-    - Công ty có cung cấp phần mềm quản lý bán hàng không?
-
-- intent: ask_product_info
-  examples: |
-    - Mình muốn biết thêm về các giải pháp phần mềm tùy chỉnh cho doanh nghiệp
-    - Công ty có phần mềm nào hỗ trợ quản lý vận hành doanh nghiệp không?
-    - V2S đang cung cấp các sản phẩm phần mềm nào?
-    - Bên bạn có cung cấp ERP hay CRM không?
-    - Công ty có giải pháp phần mềm quản lý riêng cho doanh nghiệp không?
-    - Mình muốn biết thêm về phần mềm hóa đơn điện tử của V2S
+    - Bên bạn có phần mềm [quản lý giáo dục](product) không?
+    - Công ty có phần mềm [quản lý nhân sự](product) không?
+    - Bên bạn có phần mềm [quản lý bán hàng](product) không?
+    - Công ty có phần mềm [quản lý kho](product) không?
+    - Bên bạn có phần mềm [quản lý doanh nghiệp](product) không?
+    - Bên bạn có sản phẩm [theo yêu cầu](product) không?
+    - Bên bạn có giải pháp [chuyển đổi số](product) không?
+    - Mình muốn biết thêm về phần mềm [hóa đơn điện tử](product) của V2S
+    - Mình muốn biết thêm về các phần mềm [tùy chỉnh](product) cho doanh nghiệp
+    - Công ty có phần mềm nào hỗ trợ [quản lý vận hành doanh nghiệp](product) không?
+    - V2S đang cung cấp các sản phẩm [phần mềm ERP](product) nào?
+    - Bên bạn có cung cấp [ERP](product) hay [CRM](product) không?
+    - Công ty có giải pháp phần mềm [quản lý doanh nghiệp](product) riêng không?
+    - V2S có thiết kế phần mềm [theo yêu cầu](product) không?
     - Các phần mềm chính bên công ty gồm những gì?
-    - V2S có thiết kế phần mềm theo yêu cầu không?
+    - Bên bạn có thể giới thiệu qua về các giải pháp đang cung cấp không?
+    - Mình muốn tìm hiểu thêm về các phần mềm bên bạn phát triển
+    - Bên bạn có những phần mềm nào
+
+    
     
 - intent: pricing
   examples: |
-    - Giá phần mềm là bao nhiêu?
-    - Chi phí dịch vụ [ERP](product) là bao nhiêu?
+    - Giá phần mềm [ERP](product) là bao nhiêu?
+    - Chi phí dịch vụ [CRM](product) là bao nhiêu?
     - Có bản miễn phí không?
-    - Phần mềm [CRM](product) giá bao nhiêu?
-    - Bên bạn có thể cho mình biết giá phần mềm không?
+    - Phần mềm [hóa đơn điện tử](product) giá bao nhiêu?
     - Phần mềm của Công ty Văn Việt có giá bao nhiêu vậy?
     - Cho mình xin báo giá sản phẩm bên bạn nhé.
     - Mình muốn biết chi phí triển khai phần mềm.
-    - Bên bạn tính giá theo gói hay theo yêu cầu?
-    - Dịch vụ phát triển phần mềm bên bạn có đắt không?
     - Bên bạn có bảng giá chi tiết không?
-    - Giá dịch vụ tư vấn và triển khai hệ thống là bao nhiêu?
-    - Cho mình hỏi chi phí thiết kế phần mềm bên bạn khoảng bao nhiêu?
-    - Mức giá phần mềm quản lý giáo dục là bao nhiêu vậy?
-    - Công ty có cung cấp gói phần mềm miễn phí dùng thử không?
-    - Mình muốn xem báo giá cho doanh nghiệp nhỏ.
+    - Giá phần mềm [quản lý giáo dục](product) là bao nhiêu vậy?
     - Bên bạn có ưu đãi hoặc khuyến mãi gì không?
-    - Giá phần mềm bên bạn có thể tùy chỉnh theo nhu cầu không?
-    - Chi phí bảo trì hệ thống hàng năm là bao nhiêu?
-    - Bên bạn có thể gửi bảng báo giá qua email không?
-    - Mình muốn biết tổng chi phí trọn gói khi triển khai phần mềm.
-    - Có gói dịch vụ nào phù hợp với trường học nhỏ không?
-    - Mức giá dịch vụ CNTT của Văn Việt dao động khoảng bao nhiêu?
-    - Công ty có chính sách chiết khấu hoặc hợp tác lâu dài không?
-    - Mình muốn biết giá phần mềm ERP của bên bạn.
-    - Bên bạn có thể cung cấp bảng giá chi tiết được không?
-    - Mình muốn biết chi phí sử dụng phần mềm hàng tháng.
-    - Giá phần mềm quản lý bán hàng là bao nhiêu vậy?
-    - Bên bạn có thể cho mình biết giá dịch vụ phát triển phần mềm không?
-    - Mình muốn tìm hiểu về giá cả các sản phẩm của Công ty phần mềm Văn Việt.
-    - Bên bạn có thể gửi bảng giá sản phẩm qua email không?
-    - Mình muốn biết chi phí sử dụng phần mềm bên bạn.
-    - Giá phần mềm của bên bạn là bao nhiêu?
+    - Mình muốn biết giá phần mềm [quản lý bán hàng](product).
+    - Giá phần mềm [quản lý nhân sự](product) bao nhiêu?
+    - Bên bạn có chính sách chiết khấu không?
+    - Mình muốn biết giá phần mềm bên bạn.
+    - Chi phí sử dụng phần mềm hàng tháng là bao nhiêu?
+    - Có thể gửi bảng báo giá qua email không?
+- intent: affirm
+  examples: |
+    - Có
+    - Vâng
+    - Đúng rồi
+    - Mình đồng ý
+    - Ok gửi mình nhé
+    - Ừ gửi qua email giúp mình
+    - Mình muốn nhận báo giá qua mail
+    - Gửi báo giá cho mình nhé
+- intent: provide_email
+  examples: |
+    - Email của mình là [contact@gmail.com](email)
+    - Gửi qua [minh@abc.vn](email) nhé
+    - [info@vanvietsoft.com](email)
+    - Đây là email của mình: [nhi123@gmail.com](email)
+    - [sales@v2s.vn](email)
+
 - intent: demo_request
   examples: |
     - Tôi muốn dùng thử phần mềm
@@ -307,32 +217,33 @@ nlu:
     - Cho mình xin link demo sản phẩm nhé.
     - Có thể gửi mình bản dùng thử phần mềm được không?
     - Mình muốn trải nghiệm thử sản phẩm của công ty.
-    - Công ty có demo phần mềm quản lý giáo dục không?
-    - Cho mình xem thử giao diện phần mềm bên bạn được không?
-    - Bên bạn có thể trình bày demo cho mình xem qua không?
+    - Công ty có demo phần mềm [quản lý giáo dục](product) không?
+    - Cho mình xem thử giao diện phần mềm [ERP](product) được không?
+    - Bên bạn có thể trình bày demo phần mềm [CRM](product) cho mình xem qua không?
+    - Có bản demo phần mềm [quản lý nhân sự](product) không?
+    - Mình muốn dùng thử phần mềm [hóa đơn điện tử](product).
     - Có phiên bản demo online không vậy?
-    - Mình muốn dùng thử phần mềm trước khi mua.
-    - Có bản dùng thử miễn phí không?
     - Công ty có hỗ trợ demo trực tiếp không?
-    - Làm sao để mình có thể xem phần mềm mẫu của bên bạn?
-    - Bên bạn có video giới thiệu sản phẩm không?
-    - Cho mình xem phần mềm mẫu của Văn Việt nhé.
-    - Có thể gửi bản demo qua email giúp mình được không?
+    - Bên bạn có thể gửi bản demo qua email giúp mình được không?
     - Mình muốn được xem demo tính năng quản lý học sinh.
     - Có thể hẹn buổi demo online với công ty không?
-    - Bên bạn có thể giới thiệu phần mềm qua Zoom hoặc Google Meet được không?
-    - Mình quan tâm sản phẩm bên bạn, cho mình xem thử được chứ?
-    - Công ty có thể tổ chức buổi demo trực tiếp không?
     - Mình muốn đăng ký dùng thử phần mềm của bên bạn.
     - Bên bạn có thể gửi link demo sản phẩm qua email không?
     - Mình muốn xem demo phần mềm của Công ty phần mềm Văn Việt.
     - Có bản demo nào cho sản phẩm của bên bạn không?
     - Mình muốn đăng ký dùng thử phần mềm bên bạn.
+
 - intent: tech_support
   examples: |
     - Phần mềm bị lỗi thì làm sao?
     - Tôi không đăng nhập được vào hệ thống
     - Bị [cài đặt thất bại](error_type)
+    - Bị [mất dữ liệu](error_type)
+    - Phần mềm chạy [chậm](error_type)
+    - Bị [treo máy](error_type)
+    - Lỗi [hệ thống](error_type)
+    - Không [lưu được dữ liệu](error_type)
+    - Bị [báo lỗi liên tục](error_type)
     - Có hỗ trợ remote không?
     - Mình cần được hỗ trợ kỹ thuật.
     - Bên bạn có thể giúp mình khắc phục lỗi phần mềm được không?
@@ -357,121 +268,232 @@ nlu:
     
 - intent: warranty_policy
   examples: |
-    - Phần mềm được bảo hành bao lâu?
-    - Có bảo trì định kỳ không?
-    - Chính sách bảo hành thế nào?
-    - Bên bạn có chính sách bảo hành phần mềm không?
-    - Cho mình hỏi thời gian bảo hành là bao lâu?
+    - Phần mềm được [bảo hành bao lâu](warranty_item)?
+    - Có [bảo trì định kỳ](warranty_item) không?
+    - [Chính sách bảo hành](warranty_item) thế nào?
+    - Bên bạn có [chính sách bảo hành phần mềm](warranty_item) không?
+    - Cho mình hỏi [thời gian bảo hành](warranty_item) là bao lâu?
     - Phần mềm có được bảo hành sau khi bàn giao không?
-    - Bên công ty có hỗ trợ bảo trì định kỳ không?
-    - Chính sách bảo hành của Văn Việt như thế nào vậy?
-    - Mình muốn biết thông tin về dịch vụ bảo hành.
-    - Sau khi triển khai xong, có hỗ trợ kỹ thuật miễn phí không?
+    - Bên công ty có hỗ trợ [bảo trì định kỳ](warranty_item) không?
+    - [Chính sách bảo hành](warranty_item) của Văn Việt như thế nào vậy?
+    - Mình muốn biết thông tin về [dịch vụ bảo hành](warranty_item).
+    - Sau khi triển khai xong, có [hỗ trợ kỹ thuật miễn phí](warranty_item) không?
     - Thời gian bảo hành hệ thống là bao nhiêu tháng?
-    - Có mất phí khi bảo hành phần mềm không?
-    - Công ty có bảo hành trọn đời cho sản phẩm không?
+    - Có mất phí khi [bảo hành phần mềm](warranty_item) không?
+    - Công ty có [bảo hành trọn đời](warranty_item) cho sản phẩm không?
     - Nếu phần mềm lỗi sau thời gian bàn giao thì có được hỗ trợ không?
-    - Mình muốn hỏi về gói bảo trì và nâng cấp phần mềm.
-    - Chính sách bảo hành bên bạn bao gồm những gì?
-    - Có hỗ trợ cập nhật phần mềm trong thời gian bảo hành không?
+    - Mình muốn hỏi về [gói bảo trì và nâng cấp phần mềm](warranty_item).
+    - [Chính sách bảo hành](warranty_item) bên bạn bao gồm những gì?
+    - Có hỗ trợ [cập nhật phần mềm](warranty_item) trong thời gian bảo hành không?
     - Khi bảo hành có cần ký hợp đồng bổ sung không?
-    - Bên bạn có dịch vụ bảo hành tận nơi không?
+    - Bên bạn có [dịch vụ bảo hành tận nơi](warranty_item) không?
     - Nếu phần mềm lỗi do người dùng thì có được hỗ trợ không?
-    - Công ty có gói bảo trì hàng năm không?
+    - Công ty có [gói bảo trì hàng năm](warranty_item) không?
     - Sau thời gian bảo hành, bên bạn còn hỗ trợ không?
-    - Cho mình xin chi tiết chính sách bảo hành và bảo trì hệ thống.
-    - Mình muốn biết về chính sách bảo hành phần mềm của Công ty phần mềm Văn Việt.
-    - Bên bạn có chính sách bảo hành phần mềm như thế nào?
-    - Thời gian bảo hành sản phẩm là bao lâu vậy?
-    - Công ty có hỗ trợ bảo trì định kỳ không?
-    - Mình muốn tìm hiểu về chính sách bảo hành của bên bạn.
-    - Bên bạn có dịch vụ bảo hành phần mềm không?
-    - Cho mình hỏi về thời gian bảo hành sản phẩm.
-    - Mình muốn biết về chính sách bảo hành của Công ty phần mềm Văn Việt.
-    - bên bạn có dịch vụ bảo hành phần mềm không?
-    - cho mình hỏi về thời gian bảo hành sản phẩm.
+    - Cho mình xin chi tiết [chính sách bảo hành và bảo trì hệ thống](warranty_item).
+    - Mình muốn biết về [chính sách bảo hành phần mềm](warranty_item) của Công ty phần mềm Văn Việt.
+    - Thời gian [bảo hành sản phẩm](warranty_item) là bao lâu vậy?
+    - Công ty có hỗ trợ [bảo trì định kỳ](warranty_item) không?
 
 - intent: promotion
   examples: |
     - Hiện tại có chương trình giảm giá không?
-    - Có khuyến mãi nào cho khách hàng mới không?
-    - Đang có ưu đãi gì?
-    - Công ty mình đang có chương trình khuyến mãi nào không?
-    - Hiện tại có ưu đãi gì cho khách hàng mới không?
-    - Có giảm giá cho gói phần mềm quản lý giáo dục không?
-    - Bên mình có đang chạy chương trình tri ân khách hàng không?
-    - Có khuyến mãi dịp lễ này không vậy?
+    - Có khuyến mãi nào cho [khách hàng mới](promotion_type) không?
+    - Đang có [ưu đãi](promotion_type) gì?
+    - Công ty mình đang có chương trình [giảm giá](promotion_type) nào không?
+    - Có [ưu đãi đặc biệt](promotion_type) nào cho doanh nghiệp không?
+    - Có giảm giá cho gói phần mềm [quản lý giáo dục](product) không?
+    - Bên mình có đang chạy chương trình [tri ân khách hàng](promotion_type) không?
+    - Có khuyến mãi dịp [lễ 20/11](promotion_event) không vậy?
+    - Bên bạn có ưu đãi gì nhân dịp [tết nguyên đán](promotion_event) không?
+    - Có chương trình khuyến mãi nhân dịp [ngày quốc tế phụ nữ 8/3](promotion_event) không?
+    - Bên bạn có ưu đãi gì nhân dịp [ngày nhà giáo Việt Nam 20/11](promotion_event) không?
+    - Có khuyến mãi gì nhân dịp [ngày doanh nhân Việt Nam 13/10](promotion_event) không?
     - Mua phần mềm số lượng lớn có được giảm giá không?
-    - Bên Văn Việt có ưu đãi gì cho khách hàng doanh nghiệp không?
-    - Tôi muốn biết các chương trình ưu đãi hiện tại của công ty
-    - Có gói combo phần mềm + dịch vụ nào đang được giảm giá không?
-    - Bên bạn có khuyến mãi cho khách hàng lâu năm không?
     - Tôi nghe nói công ty đang có ưu đãi, cho mình hỏi chi tiết được không?
-    - Bên mình có khuyến mãi theo tháng hoặc quý không vậy?
+    - Bên bạn có chương trình [giới thiệu nhận thưởng](promotion_type) không?
     - Có mã giảm giá nào khi đăng ký phần mềm không?
     - Có tặng thêm dịch vụ bảo trì khi mua phần mềm không?
-    - Đang có deal tốt nào cho phần mềm quản lý nhà nước không?
-    - Có ưu đãi gì đặc biệt cho khách hàng giáo dục không?
-    - Mình muốn hỏi về các chương trình giảm giá của công ty
-    - Hiện có chính sách khuyến khích đối tác mới không?
-    - Công ty có đang chạy chương trình giới thiệu nhận thưởng không?
-    - Bên mình có khuyến mãi khi gia hạn dịch vụ phần mềm không?
-    - Mình muốn biết về các chương trình ưu đãi hiện tại của Công ty phần mềm Văn Việt.
-    - Bên bạn có chương trình giảm giá nào không?
-    - Có ưu đãi gì cho khách hàng mới không?
-    - Mình muốn biết về các chương trình khuyến mãi của bên bạn.
-    - Có chương trình ưu đãi nào hiện tại không?
-    - Mình muốn tìm hiểu về các chương trình ưu đãi của Công ty phần mềm
-    - Bên bạn có chương trình khuyến mãi nào không?
+    - Hiện có [chương trình ưu đãi cho giáo dục](promotion_type) không?
+
 - intent: partner_request
   examples: |
     - Tôi muốn hợp tác phân phối sản phẩm
-    - Làm sao để trở thành đối tác của V2S?
-    - Tôi muốn làm đại lý
-    - Tôi muốn hợp tác với công ty Văn Việt
-    - Bên tôi muốn làm đối tác phân phối phần mềm của công ty
-    - Làm sao để đăng ký trở thành đại lý của Văn Việt?
-    - Công ty có chương trình hợp tác nào cho doanh nghiệp CNTT không?
-    - Tôi muốn liên hệ để hợp tác phát triển phần mềm
-    - Bên mình có nhận đối tác triển khai phần mềm không?
-    - Tôi muốn hợp tác trong lĩnh vực giáo dục với công ty
-    - Cho tôi hỏi thủ tục để trở thành đối tác kinh doanh
-    - Công ty có chính sách hỗ trợ đối tác như thế nào?
-    - Tôi muốn hợp tác kỹ thuật để tích hợp hệ thống phần mềm
-    - Làm sao để ký kết hợp đồng hợp tác với bên Văn Việt?
-    - Tôi muốn giới thiệu giải pháp của mình để hợp tác cùng phát triển
-    - Công ty có đang tìm kiếm đối tác mới không?
-    - Có thể gửi thông tin hợp tác qua email nào?
-    - Bên bạn có chính sách chiết khấu cho đối tác không?
+    - Làm sao để trở thành đối tác của [V2S](company_name)?
+    - Tôi muốn làm [đại lý](partner_type)
+    - Tôi muốn hợp tác với công ty [Văn Việt](company_name)
+    - Bên tôi muốn làm [đối tác phân phối phần mềm](partner_type) của công ty
+    - Làm sao để đăng ký trở thành [đại lý](partner_type) của [Văn Việt](company_name)?
+    - Công ty có chương trình hợp tác nào cho [doanh nghiệp CNTT](collab_field) không?
+    - Tôi muốn liên hệ để hợp tác [phát triển phần mềm](collab_field)
+    - Có thể gửi thông tin hợp tác qua [email](contact_method) nào?
+    - Tôi có thể hợp tác với công ty qua kênh [zalo](contact_method) được không?
+    - Bên bạn có hỗ trợ hợp tác qua [messenger](contact_method) không?
+    - Bên bạn có chính sách [chiết khấu cho đối tác](partner_type) không?
     - Tôi muốn thảo luận cơ hội hợp tác giữa hai bên
-    - Công ty có chương trình đối tác triển khai cho các trường học không?
-    - Tôi là công ty phần mềm, muốn hợp tác triển khai giải pháp với Văn Việt
-    - Muốn đăng ký làm đối tác cung cấp dịch vụ phần cứng
-    - Có thể hợp tác trong các dự án nhà nước không?
-    - Mình muốn tìm hiểu về cơ hội hợp tác với Công ty phần mềm Văn Việt.
-    - Bên bạn có chính sách hợp tác nào cho đối tác không?
-    - Tôi muốn hợp tác với bên bạn trong lĩnh vực phân phối sản phẩm.
-    - Làm sao để trở thành đối tác của Công ty phần mềm Văn Việt?
-    - Mình muốn tìm hiểu về cơ hội hợp tác với bên bạn.
-    - Bên bạn có chính sách hợp tác nào không?
-    - Làm sao để trở thành đối tác của bên bạn?
-    - Mình muốn hợp tác với Công ty phần mềm Văn Việt.
-    - Bên bạn có nhận đối tác phân phối sản phẩm không?
-    - Tôi muốn làm đại lý phân phối phần mềm của bên bạn.
-    - Cho tôi hỏi thủ tục để trở thành đối tác của bên bạn?
-    - Tôi muốn hợp tác với Công ty phần mềm Văn Việt.
-    - Tôi muốn thảo luận cơ hội hợp tác giữa hai bên.
-    - Tôi là công ty phần mềm, muốn hợp tác triển khai giải pháp với bên bạn.
-    - Muốn đăng ký làm đối tác cung cấp dịch vụ phần cứng.
+
 - intent: ask_remote_support
   examples: |
-    - Mình muốn được hỗ trợ remote
-    - Có thể remote giúp mình không?
-    - Bên bạn hỗ trợ từ xa qua TeamViewer không?
-    - Cho mình xin hỗ trợ kỹ thuật remote
+    - Mình muốn được hỗ trợ [remote](support_type)
+    - Có thể [remote](support_type) giúp mình không?
+    - Bên bạn hỗ trợ từ xa qua [TeamViewer](remote_tool) không?
+    - Cho mình xin hỗ trợ kỹ thuật [remote](support_type)
     - Muốn kỹ thuật viên điều khiển máy mình giúp
     - Bên bạn có hỗ trợ kỹ thuật từ xa không?
     - Mình cần hỗ trợ kỹ thuật qua phần mềm điều khiển từ xa
-    - Có thể giúp mình sửa lỗi qua TeamViewer được không?
-    - Mình muốn nhờ kỹ thuật viên bên bạn hỗ trợ remote
-    
+    - Có thể giúp mình sửa lỗi qua [TeamViewer](remote_tool) được không?
+    - Mình muốn nhờ kỹ thuật viên bên bạn hỗ trợ [remote](support_type)
+    - Bên bạn có hỗ trợ qua [AnyDesk](remote_tool) không?
+    - Có thể kết nối qua [UltraViewer](remote_tool) giúp mình được không?
+
+
+- lookup: contact_type
+  examples: |
+    - hotline
+    - email
+    - zalo
+    - fanpage
+- lookup: organization
+  examples: |
+    - V2S
+    - Văn Việt
+    - Công ty Văn Việt
+    - Công ty phần mềm Văn Việt
+    - Công ty TNHH Phát triển Phần mềm Văn Việt
+    - Văn Việt Software
+    - V2S Software
+- lookup: info_type
+  examples: |
+    - lĩnh vực
+    - ngành nghề
+    - sản phẩm
+    - dịch vụ
+    - giải pháp
+    - phần mềm
+    - ERP
+    - CRM
+    - hóa đơn điện tử
+    - định hướng
+    - sứ mệnh
+    - mục tiêu
+- lookup: company_address
+  examples: |
+    - Hà Nội
+    - TP.HCM
+    - Đà Nẵng
+    - Cầu Giấy
+    - Trụ sở
+    - Văn phòng
+    - Chi nhánh
+    - Địa chỉ
+- lookup: work_time_period
+  examples: |
+    - thứ 7
+    - chủ nhật
+    - cuối tuần
+    - ngày lễ
+    - buổi tối
+    - giờ hành chính
+    - buổi sáng
+    - buổi trưa
+    - 24/7
+- lookup: product
+  examples: |
+    - ERP
+    - CRM
+    - hóa đơn điện tử
+    - quản lý giáo dục
+    - quản lý nhân sự
+    - quản lý kho
+    - quản lý doanh nghiệp
+    - quản lý bán hàng
+    - phần mềm theo yêu cầu
+    - chuyển đổi số
+    - phần mềm quản lý doanh nghiệp
+- lookup: email
+  examples: |
+    - contact@gmail.com
+    - minh@abc.vn
+    - info@vanvietsoft.com
+    - nhi123@gmail.com
+    - sales@v2s.vn  
+- lookup: error_type
+  examples: |
+    - cài đặt thất bại
+    - không đăng nhập được
+    - mất dữ liệu
+    - chạy chậm
+    - treo máy
+    - lỗi hệ thống
+    - không lưu được dữ liệu
+    - báo lỗi liên tục
+- lookup: warranty_item
+  examples: |
+    - bảo hành
+    - bảo trì định kỳ
+    - chính sách bảo hành
+    - dịch vụ bảo hành
+    - thời gian bảo hành
+    - hỗ trợ kỹ thuật miễn phí
+    - gói bảo trì và nâng cấp phần mềm
+- lookup: promotion_type
+  examples: |
+    - ưu đãi
+    - giảm giá
+    - khuyến mãi
+    - tri ân khách hàng
+    - khách hàng mới
+    - ưu đãi đặc biệt
+    - giới thiệu nhận thưởng
+- lookup: promotion_event
+  examples: |
+    - lễ 20/11
+    - tết nguyên đán
+    - ngày quốc tế phụ nữ 8/3
+    - ngày nhà giáo Việt Nam 20/11
+    - ngày doanh nhân Việt Nam 13/10 
+- lookup: partner_type
+  examples: |
+    - đại lý
+    - đối tác phân phối phần mềm
+    - cộng tác viên
+- lookup: company_name
+  examples: |
+    - V2S
+    - Văn Việt
+    - Công ty Văn Việt
+    - Công ty phần mềm Văn Việt
+    - Công ty TNHH Phát triển Phần mềm Văn Việt
+- lookup: collab_field
+  examples: |
+    - doanh nghiệp CNTT
+    - phát triển phần mềm
+    - phân phối phần mềm
+- lookup: contact_method
+  examples: |
+    - email
+    - điện thoại
+    - zalo
+    - fanpage
+    - messenger
+    - tổng đài
+    - telegram
+- lookup: tech_support_method
+  examples: |
+    - TeamViewer
+    - remote
+    - hỗ trợ từ xa
+- lookup: remote_tool
+  examples: |
+    - TeamViewer
+    - AnyDesk
+    - UltraViewer
+- lookup: support_type
+  examples: |
+    - remote
+    - từ xa
+- lookup: partner_type
+  examples: |
+    - đại lý
+    - đối tác phân phối phần mềm
+    - cộng tác viên

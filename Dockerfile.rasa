@@ -1,0 +1,10 @@
+FROM rasa/rasa:3.6.20
+
+# Cài thêm thư viện cần thiết cho MongoDB
+RUN pip install --no-cache-dir pymongo
+
+# Đặt timezone cho Việt Nam (tuỳ chọn)
+ENV TZ=Asia/Ho_Chi_Minh
+
+# Chạy Rasa
+CMD ["run", "--enable-api", "--cors", "*"]

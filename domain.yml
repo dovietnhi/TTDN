@@ -14,9 +14,10 @@ intents:
   - promotion
   - partner_request
   - ask_company_location
-  - ask_product_info
   - ask_remote_support
-
+  - affirm
+  - provide_email
+  
 entities:
   - product
   - time
@@ -24,6 +25,165 @@ entities:
   - location
   - price
   - error_type
+  - contact_type
+  - organization
+  - info_type
+  - company_address
+  - work_time_period
+  - email
+  - warranty_item
+  - promotion_type
+  - promotion_event
+  - partner_type
+  - collab_field
+  - company_name
+  - contact_method
+  - support_type
+  - remote_tool
+
+slots:
+  contact_type:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: contact_type
+  organization:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: organization
+
+  info_type:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: info_type
+
+  company_address:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: company_address
+
+  work_time_period:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: work_time_period
+
+  product:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: product
+
+  email_purpose:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: email_purpose
+
+  email:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: email
+
+  error_type:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: error_type
+
+  warranty_item:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: warranty_item
+
+  promotion_type:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: promotion_type
+
+  promotion_event:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: promotion_event
+
+  partner_type:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: partner_type
+
+  collab_field:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: collab_field
+
+  company_name:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: company_name
+
+  contact_method:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: contact_method
+
+  support_type:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: support_type
+
+  remote_tool:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: remote_tool
+
+  email_provided:
+    type: bool
+    initial_value: false
+    influence_conversation: true
+    mappings:
+      - type: from_intent
+        intent: affirm
+        value: true
+      - type: from_intent
+        intent: deny
+        value: false
+
+  demo_requested:
+    type: bool
+    initial_value: false
+    influence_conversation: true
+    mappings:
+      - type: from_intent
+        intent: affirm
+        value: true
+      - type: from_intent
+        intent: deny
+        value: false
 
 responses:
   utter_greet:
@@ -88,40 +248,9 @@ responses:
     - text: "Cảm ơn bạn đã sử dụng dịch vụ của V2S. Hẹn gặp lại bạn lần sau! 👋"
 
   utter_company_info:
-    - text: "Công ty Cổ phần Công nghệ Số V2S chuyên phát triển phần mềm quản lý doanh nghiệp, ERP và các giải pháp số hóa cho doanh nghiệp."
-    - text: "V2S là nhà cung cấp giải pháp phần mềm ERP, CRM và các dịch vụ số hóa uy tín tại Việt Nam, phục vụ hơn 500 doanh nghiệp."
-    - text: "Với hơn 10 năm kinh nghiệm, V2S cung cấp các giải pháp phần mềm quản lý doanh nghiệp giúp tối ưu hóa quy trình và nâng cao hiệu quả kinh doanh."
-    - text: "Công ty V2S cam kết mang đến các giải pháp phần mềm chất lượng cao, hỗ trợ doanh nghiệp trong việc chuyển đổi số và phát triển bền vững."
-    - text: "V2S tự hào là đối tác tin cậy của nhiều doanh nghiệp lớn tại Việt Nam, cung cấp các giải pháp phần mềm ERP, CRM và dịch vụ số hóa toàn diện."
-    - text: "Công ty Cổ phần Công nghệ Số V2S chuyên cung cấp các giải pháp phần mềm quản lý doanh nghiệp, giúp doanh nghiệp tối ưu hóa hoạt động và nâng cao hiệu quả kinh doanh."
-    - text: "V2S là nhà cung cấp giải pháp phần mềm ERP, CRM và các dịch vụ số hóa uy tín tại Việt Nam, với hơn 500 doanh nghiệp sử dụng sản phẩm và dịch vụ của chúng tôi."
-    - text: "Với hơn 10 năm kinh nghiệm trong lĩnh vực phát triển phần mềm, V2S cam kết mang đến các giải pháp quản lý doanh nghiệp chất lượng cao, giúp doanh nghiệp chuyển đổi số thành công."
-    - text: "Công ty V2S tự hào là đối tác tin cậy của nhiều doanh nghiệp lớn tại Việt Nam, cung cấp các giải pháp phần mềm ERP, CRM và dịch vụ số hóa toàn diện nhằm hỗ trợ doanh nghiệp phát triển bền vững."
-    - text: "V2S cung cấp các giải pháp phần mềm quản lý doanh nghiệp đa dạng, bao gồm ERP, CRM và các dịch vụ số hóa, giúp doanh nghiệp tối ưu hóa quy trình và nâng cao hiệu quả kinh doanh."
-    - text: "Công ty Cổ phần Công nghệ Số V2S chuyên phát triển các giải pháp phần mềm quản lý doanh nghiệp, ERP và các dịch vụ số hóa nhằm hỗ trợ doanh nghiệp trong quá trình chuyển đổi số."
-    - text: "V2S là nhà cung cấp giải pháp phần mềm ERP, CRM và các dịch vụ số hóa uy tín tại Việt Nam, phục vụ hơn 500 doanh nghiệp với các sản phẩm và dịch vụ chất lượng cao."
-    - text: "Với hơn 10 năm kinh nghiệm, V2S cam kết mang đến các giải pháp phần mềm quản lý doanh nghiệp giúp tối ưu hóa quy trình và nâng cao hiệu quả kinh doanh cho khách hàng."
-    - text: >
-        Công ty TNHH Phát triển Phần mềm Văn Việt (V2S) là doanh nghiệp chuyên cung cấp giải pháp phần mềm và công nghệ thông tin cho doanh nghiệp và tổ chức tại Việt Nam 🇻🇳.  
-        V2S tập trung phát triển các sản phẩm như: Hóa đơn điện tử, ERP, CRM, phần mềm quản lý doanh nghiệp, quản lý nhân sự, quản lý giáo dục và các giải pháp theo yêu cầu riêng.
-    - text: >
-        V2S (Công ty TNHH Phát triển Phần mềm Văn Việt) là công ty chuyên về tư vấn, thiết kế và phát triển phần mềm.  
-        Bên mình cung cấp các sản phẩm nổi bật như ERP, CRM, hóa đơn điện tử, hệ thống quản lý nhân sự, giáo dục, và các giải pháp phần mềm tùy chỉnh cho doanh nghiệp.
-    - text: >
-        Công ty phần mềm Văn Việt (V2S) hoạt động trong lĩnh vực công nghệ thông tin, chuyên cung cấp giải pháp phần mềm quản lý tổng thể cho doanh nghiệp.  
-        Ngoài ra, V2S còn nhận phát triển phần mềm theo yêu cầu và tư vấn chuyển đổi số cho các đơn vị nhà nước, giáo dục, và doanh nghiệp tư nhân.
-    - text: >
-        V2S là công ty phần mềm Việt Nam chuyên về phát triển, triển khai và tích hợp hệ thống phần mềm quản lý.  
-        Bên mình có đội ngũ kỹ sư giàu kinh nghiệm trong lĩnh vực ERP, CRM, hóa đơn điện tử, quản lý nhân sự và các dự án phần mềm theo yêu cầu.
-    - text: >
-        Công ty TNHH Phát triển Phần mềm Văn Việt – viết tắt là V2S – được thành lập với sứ mệnh ứng dụng công nghệ để tối ưu quy trình vận hành doanh nghiệp.  
-        Các giải pháp của V2S bao gồm phần mềm hóa đơn điện tử, hệ thống ERP, CRM, phần mềm quản lý giáo dục, và nhiều ứng dụng doanh nghiệp khác.
-    - text: >
-        V2S là công ty chuyên cung cấp giải pháp phần mềm và dịch vụ CNTT toàn diện, bao gồm phát triển phần mềm theo yêu cầu, thiết kế hệ thống ERP, CRM, và giải pháp quản lý cho doanh nghiệp.  
-        Mục tiêu của V2S là giúp doanh nghiệp Việt Nam chuyển đổi số hiệu quả hơn.
-    - text: >
-        Văn Việt Software (V2S) cung cấp các giải pháp công nghệ thông tin hiện đại, phục vụ nhiều lĩnh vực như: doanh nghiệp, giáo dục, y tế, và hành chính.  
-        Bên mình luôn hướng đến việc tự động hóa quy trình và tối ưu hiệu suất vận hành cho khách hàng.
+  - text: >
+      V2S (Công ty TNHH Phát triển Phần mềm Văn Việt) là doanh nghiệp chuyên cung cấp giải pháp phần mềm và công nghệ thông tin cho doanh nghiệp tại Việt Nam.  
+      Với hơn 10 năm kinh nghiệm, công ty cung cấp các giải pháp ERP, CRM, hóa đơn điện tử và phần mềm quản lý theo yêu cầu.
   utter_company_location:
     - text: "Trụ sở chính của công ty mình đặt tại Thôn 2, Vạn Phúc, Thanh Trì, Hà Nội nhé 🏢"
     - text: "Công ty V2S hiện đặt văn phòng chính ở Thôn 2, Vạn Phúc, Thanh Trì, Hà Nội."
@@ -135,19 +264,7 @@ responses:
     - text: "Công ty V2S hiện hoạt động tại Thôn 2, Vạn Phúc, Thanh Trì, Hà Nội — khu vực ngoại thành Hà Nội, khá dễ tìm nhé!"
 
   utter_working_hours:
-    - text: "Công ty làm việc từ 8h00 đến 17h30, từ thứ 2 đến thứ 6. Thứ 7 hỗ trợ online."
-    - text: "Bên mình làm việc trong giờ hành chính: 8h00 – 17h30 (thứ 2 đến thứ 6), thứ 7 vẫn hỗ trợ online."
-    - text: "Giờ làm việc: 8h00 – 17h30, từ thứ 2 đến thứ 6. Thứ 7 công ty vẫn hỗ trợ khách hàng online."
-    - text: "Công ty mở cửa lúc 8h00 sáng và làm việc đến 17h30 chiều, thứ 7 hỗ trợ online nhé."
-    - text: "Văn Việt làm việc giờ hành chính (8h00 – 17h30, thứ 2–6), thứ 7 vẫn có hỗ trợ online."
-    - text: "Bạn có thể liên hệ trong khung 8h00 – 17h30 (thứ 2–6) để được phản hồi nhanh nhất. Thứ 7 vẫn hỗ trợ online."
-    - text: "Công ty không làm việc buổi tối hay 24/7, chỉ làm giờ hành chính. Tuy nhiên thứ 7 vẫn có hỗ trợ online."
-    - text: "Bộ phận hỗ trợ khách hàng làm việc 8h00 – 17h30 (thứ 2–6), thứ 7 có hỗ trợ online."
-    - text: "Công ty có nghỉ trưa từ 12h00 – 13h30, làm việc hành chính 8h00 – 17h30."
-    - text: "Công ty nghỉ lễ theo quy định Nhà nước, nhưng có thể hỗ trợ online trong trường hợp khẩn cấp."
-    - text: "Không nhé, công ty chỉ làm việc đến 17h30, thứ 7 vẫn hỗ trợ online."
-    - text: "Có hỗ trợ online ngoài giờ vào thứ 7, nhưng phản hồi nhanh nhất vẫn trong giờ hành chính."
-    - text: "Có nhé! Công ty nghỉ trưa khoảng 12h00 – 13h30."
+    - text: "Công ty V2S làm việc từ 8h00 đến 17h00, từ thứ 2 đến thứ 6 hàng tuần."
 
   utter_contact_info:
     - text: |
@@ -155,97 +272,37 @@ responses:
         📞 Hotline: 024-6686-4555  
         📧 Email: contact@vanvietsoft.com  
         🌐 Website: https://vanvietsoft.com
-    - text: "Hotline của công ty là 024-6686-4555 nhé."
-    - text: "Email hỗ trợ khách hàng là contact@vanvietsoft.com."
-    - text: "Bạn có thể liên hệ qua hotline 024-6686-4555 hoặc email contact@vanvietsoft.com."
-    - text: "Công ty có trụ sở tại Hà Nội, bạn có thể liên hệ trước qua hotline để được hướng dẫn cụ thể."
-    - text: "Bộ phận kỹ thuật, kinh doanh và hỗ trợ đều có thể liên hệ qua hotline 024-6686-4555 hoặc email contact@vanvietsoft.com."
-    - text: "Công ty có fanpage Facebook 'Văn Việt Software' và hỗ trợ qua Zalo."
-    - text: "Cách liên hệ nhanh nhất là gọi hotline 024-6686-4555 trong giờ hành chính."
-    - text: "Công ty có hỗ trợ khách hàng qua Zalo, hiện chưa dùng Telegram."
-    - text: |
-        Thông tin liên hệ chính thức:
-        📞 Hotline: 024-6686-4555  
-        📧 Email: contact@vanvietsoft.com  
-        🌐 Website: https://vanvietsoft.com
-    - text: | 
-        Hotline: 024-6686-4555  
-        Email: contact@vanvietsoft.com
-    - text: "Bạn có thể gửi hồ sơ hợp tác qua email contact@vanvietsoft.com nhé."
-    - text: "Công ty có hỗ trợ qua Facebook Messenger thông qua fanpage Văn Việt Software."
 
   utter_product_info:
-    - text: "Dạ, bên mình có cung cấp phần mềm hóa đơn điện tử — tuân thủ quy định của Tổng cục Thuế, dễ dàng tích hợp với hệ thống kế toán của doanh nghiệp."
-    - text: "Công ty có cung cấp hệ thống ERP (Enterprise Resource Planning) — giúp quản lý toàn bộ hoạt động doanh nghiệp trên một nền tảng duy nhất."
-    - text: "Bên mình có giải pháp CRM — hỗ trợ doanh nghiệp quản lý quan hệ khách hàng, chăm sóc và theo dõi hiệu quả bán hàng."
-    - text: "Công ty TNHH Phát triển phần mềm Văn Việt (V2S) hiện cung cấp nhiều sản phẩm phần mềm và giải pháp doanh nghiệp đa dạng."
-    - text: "Hiện tại, bên mình đang cung cấp nhiều dòng sản phẩm phần mềm như ERP, CRM, hóa đơn điện tử, quản lý nhân sự và phần mềm tùy chỉnh theo yêu cầu."
-    - text: "Công ty phần mềm Văn Việt có các phần mềm tiêu biểu như ERP, CRM, hóa đơn điện tử, quản lý nhân sự và các giải pháp theo yêu cầu doanh nghiệp."
-    - text: "Bên mình đang phát triển các sản phẩm phần mềm quản lý tổng thể cho doanh nghiệp, tập trung vào ERP và hóa đơn điện tử."
-    - text: "Hiện Văn Việt đang có hơn 5 sản phẩm phần mềm chính: ERP, CRM, hóa đơn điện tử, quản lý nhân sự, quản lý bán hàng..."
-    - text: "Phần mềm quản lý giáo dục hiện chưa phải sản phẩm chủ lực của bên mình, nhưng có thể phát triển theo yêu cầu khách hàng."
-    - text: "Các sản phẩm nổi bật của công ty gồm: phần mềm ERP, hóa đơn điện tử, CRM và các giải pháp tùy chỉnh theo nhu cầu doanh nghiệp."
-    - text: "Văn Việt có cung cấp phần mềm dành cho khối nhà nước, đặc biệt là các giải pháp hành chính điện tử."
-    - text: "Công ty cung cấp nhiều giải pháp phần mềm như ERP, CRM, hóa đơn điện tử và quản lý nhân sự cho doanh nghiệp."
-    - text: "Phần mềm quản lý hành chính hiện có thể được tùy chỉnh theo yêu cầu từng đơn vị, bên mình hỗ trợ triển khai đầy đủ."
-    - text: "Dưới đây là danh sách sản phẩm của công ty: ERP, CRM, hóa đơn điện tử, quản lý nhân sự, quản lý bán hàng và giải pháp tùy chỉnh."
-    - text: "Văn Việt cung cấp nhiều giải pháp phần mềm hỗ trợ doanh nghiệp quản lý tài chính, nhân sự, khách hàng và vận hành."
-    - text: "Bên mình có phần mềm quản lý nhân sự (HRM) giúp quản lý hồ sơ, chấm công, lương và đánh giá nhân viên."
-    - text: "Công ty có cung cấp các phần mềm quản lý doanh nghiệp, phù hợp với nhu cầu vận hành và mở rộng quy mô."
-    - text: "Một số khách hàng đã triển khai sản phẩm của bên mình gồm các doanh nghiệp trong lĩnh vực thương mại, sản xuất và dịch vụ."
-    - text: "Bên mình có cung cấp dịch vụ phát triển phần mềm theo yêu cầu riêng của từng doanh nghiệp."
-    - text: "Sản phẩm chủ lực hiện tại của công ty là phần mềm ERP và hóa đơn điện tử, được triển khai rộng rãi cho nhiều doanh nghiệp."
-    - text: "Bên mình có thể cung cấp bản demo để khách hàng trải nghiệm tính năng phần mềm trước khi triển khai thực tế."
-    - text: "Công ty đang phát triển các giải pháp phần mềm mới ứng dụng công nghệ AI, IoT và dữ liệu lớn."
-    - text: "Hiện tại, sản phẩm mới ra mắt của bên mình là nền tảng ERP thế hệ mới tích hợp AI hỗ trợ phân tích dữ liệu kinh doanh."
-    - text: "Văn Việt đang tập trung phát triển dòng sản phẩm ERP và CRM cho doanh nghiệp vừa và nhỏ."
-    - text: "Bên mình hiện có các sản phẩm phần mềm đa dạng, phù hợp cho nhiều lĩnh vực quản lý khác nhau."
-    - text: "Có, bên mình có phần mềm quản lý bán hàng giúp theo dõi đơn hàng, tồn kho và doanh thu theo thời gian thực."
-    - text: "Công ty cung cấp các sản phẩm phần mềm phục vụ doanh nghiệp như ERP, CRM, HRM và hóa đơn điện tử."
-    - text: "Phần mềm ERP của bên mình được phát triển với đầy đủ phân hệ: kế toán, kho, nhân sự, bán hàng và báo cáo."
-    - text: "Công ty có phần mềm quản lý kho tích hợp trong hệ thống ERP, giúp kiểm soát tồn kho và luân chuyển hàng hóa."
-    - text: "Phần mềm hóa đơn điện tử của bên mình tuân thủ chuẩn của Tổng cục Thuế và dễ dàng tích hợp với hệ thống khác."
-    - text: "Các sản phẩm chính của công ty phần mềm Văn Việt gồm ERP, CRM, HRM, hóa đơn điện tử và phần mềm quản lý bán hàng."
-    - text: "Bên mình đang phát triển các phần mềm phục vụ doanh nghiệp với khả năng tùy chỉnh linh hoạt theo yêu cầu."
-    - text: "Công ty có nhiều dòng sản phẩm phần mềm nổi bật trong lĩnh vực quản lý và điều hành doanh nghiệp."
-    - text: "Bên mình cung cấp phần mềm quản lý doanh nghiệp giúp tối ưu hóa quy trình vận hành và giảm chi phí."
-    - text: "Văn Việt cung cấp giải pháp ERP, CRM và HRM phục vụ doanh nghiệp trong nhiều ngành nghề khác nhau."
-    - text: "Phần mềm ERP bên mình hỗ trợ quản lý toàn diện — từ kế toán, kho, bán hàng đến nhân sự."
-    - text: "Công ty có thể giới thiệu chi tiết từng sản phẩm phần mềm, bao gồm ERP, hóa đơn điện tử và CRM."
-    - text: "Công ty phần mềm Văn Việt cung cấp các giải pháp công nghệ phục vụ chuyển đổi số doanh nghiệp."
-    - text: "Bên mình đang phát triển nhiều sản phẩm phần mềm quản lý thông minh cho doanh nghiệp Việt Nam."
-    - text: "Các sản phẩm phần mềm nổi bật gồm ERP, hóa đơn điện tử, CRM và HRM."
-    - text: "Bên mình cung cấp phần mềm quản lý nhân sự tích hợp với chấm công, tính lương và báo cáo tự động."
-    - text: "Công ty có phần mềm quản lý bán hàng giúp giám sát hoạt động kinh doanh đa chi nhánh."
+    - text: >
+        Công ty V2S hiện cung cấp nhiều giải pháp phần mềm như ERP, CRM, hóa đơn điện tử, 
+        quản lý giáo dục, quản lý nhân sự, quản lý kho các phần mềm tùy chỉnh theo yêu cầu doanh nghiệp.
+        Ngoài ra chúng tôi cũng cung cấp dịch vụ tư vấn, thiết kế và phát triển phần mềm cũng như các giải pháp phần cứng,
+        triển khai và bảo trì cho các hệ thống CNTT trong các doanh nghiệp...
 
-  utter_ask_product_info:
-    - text: "Công ty có cung cấp giải pháp phần mềm tùy chỉnh cho doanh nghiệp, thiết kế theo đúng nhu cầu vận hành thực tế."
-    - text: "Vâng, bên mình có phần mềm ERP hỗ trợ quản lý vận hành toàn diện cho doanh nghiệp."
-    - text: "Hiện tại, V2S đang cung cấp nhiều sản phẩm như ERP, CRM, hóa đơn điện tử và HRM."
-    - text: "Bên mình có cả ERP và CRM — hai giải pháp phổ biến giúp doanh nghiệp quản lý vận hành và khách hàng hiệu quả."
-    - text: "Công ty có thể thiết kế phần mềm quản lý riêng, đáp ứng quy trình nội bộ đặc thù của doanh nghiệp."
-    - text: "Phần mềm hóa đơn điện tử của V2S tuân thủ chuẩn Tổng cục Thuế và dễ tích hợp với hệ thống kế toán."
-    - text: "Các sản phẩm chính của công ty bao gồm: ERP, CRM, hóa đơn điện tử và phần mềm nhân sự."
-    - text: "V2S có cung cấp dịch vụ thiết kế phần mềm theo yêu cầu, phù hợp với đặc thù từng doanh nghiệp."
-
-
-    
-  utter_pricing:
-    - text: "Giá sản phẩm tùy theo gói dịch vụ và nhu cầu. Bạn có thể để lại email để nhận báo giá chi tiết."
-    - text: "Vui lòng cung cấp email của bạn để chúng tôi gửi báo giá chi tiết về sản phẩm và dịch vụ phù hợp với nhu cầu của bạn."
-    - text: "Giá cả sản phẩm phụ thuộc vào gói dịch vụ và yêu cầu cụ thể. Hãy để lại email để nhận báo giá chi tiết từ chúng tôi."
-    - text: "Để nhận báo giá chi tiết về sản phẩm và dịch vụ, vui lòng cung cấp email của bạn cho chúng tôi."
-    - text: "Giá sản phẩm sẽ được tùy chỉnh dựa trên gói dịch vụ và nhu cầu của bạn. Vui lòng để lại email để nhận báo giá chi tiết."
-    - text: "Hãy cung cấp email của bạn để chúng tôi có thể gửi báo giá chi tiết về sản phẩm và dịch vụ phù hợp với nhu cầu của bạn."
-    - text: "Giá cả sản phẩm phụ thuộc vào gói dịch vụ và yêu cầu cụ thể. Vui lòng để lại email để nhận báo giá chi tiết từ chúng tôi."
+  utter_ask_product_pricing:
+    - text: "Giá phần mềm phụ thuộc vào từng sản phẩm. Bạn muốn hỏi giá phần mềm nào ạ?"
+  utter_provide_general_pricing:
+    - text: "Giá phần mềm của Văn Việt tùy theo yêu cầu và quy mô triển khai. Bạn có muốn mình gửi bảng giá chi tiết qua email không?"
+  utter_provide_specific_pricing:
+    - text: "Giá phần mềm {product} phụ thuộc vào nhu cầu triển khai. Bạn có muốn nhận báo giá cụ thể không?"
+  utter_ask_email:
+    - text: "Vui lòng cho mình xin email để gửi bảng báo giá chi tiết nhé."
+  utter_confirm_email:
+    - text: "Mình đã ghi nhận email {email}. Bộ phận kinh doanh sẽ gửi báo giá sớm nhất!"
+  utter_thanks:
+    - text: "Cảm ơn bạn đã quan tâm! Chúc bạn một ngày làm việc hiệu quả 😊"
 
   utter_demo_request:
     - text: "Bạn có thể đăng ký demo phần mềm tại website https://vanvietsoft.com hoặc gửi yêu cầu qua email contact@vanvietsoft.com"
     - text: "Để đăng ký demo phần mềm, vui lòng truy cập website https://vanvietsoft.com hoặc gửi yêu cầu qua email contact@vanvietsoft.com"
     - text: "Bạn có thể yêu cầu demo phần mềm bằng cách truy cập website https://vanvietsoft.com hoặc gửi email về contact@vanvietsoft.com"
-    - text: "Hãy đăng ký demo phần mềm tại website https://vanvietsoft.com hoặc gửi yêu cầu qua email contact@vanvietsoft.com"
-    - text: "Để yêu cầu demo phần mềm, vui lòng truy cập website https://vanvietsoft.com hoặc gửi email về contact@vanvietsoft.com"
-    - text: "Bạn có thể đăng ký demo phần mềm bằng cách truy cập website https://vanvietsoft.com hoặc gửi yêu cầu qua email contact@vanvietsoft.com"
+  utter_ask_email_demo:
+    - text: "Vui lòng cho mình xin email để gửi link demo và tài liệu hướng dẫn nhé."
+  utter_confirm_email_demo:
+    - text: "Mình đã ghi nhận email {email}. Bộ phận chăm sóc sẽ gửi link demo sớm nhất!"
+  utter_thanks_demo:
+    - text: "Cảm ơn bạn đã quan tâm sản phẩm của Văn Việt! 😊"
 
   utter_tech_support:
     - text: |
@@ -262,76 +319,21 @@ responses:
         📞 Gọi hotline: 024-6686-4555  
         💻 Hỗ trợ từ xa qua TeamViewer hoặc AnyDesk  
         📧 Gửi yêu cầu qua email: contact@vanvietsoft.com
-    - text: |
-        Bên mình có hỗ trợ kỹ thuật từ xa qua TeamViewer hoặc AnyDesk.
-        Vui lòng gửi mã ID và Pass truy cập để kỹ thuật viên kiểm tra giúp bạn.
-    - text: |
-        Nếu bạn cần restore hoặc kiểm tra dữ liệu phần mềm,
-        vui lòng gửi thông tin chi tiết về email contact@vanvietsoft.com để được kỹ thuật xử lý.
-    - text: |
-        Bộ phận kỹ thuật làm việc trong giờ hành chính (8h00–17h30, thứ 2–6).
-        Ngoài giờ, bạn vẫn có thể gửi yêu cầu qua email contact@vanvietsoft.com, đội ngũ sẽ phản hồi sớm nhất.
-    - text: |
-        Nếu phần mềm báo lỗi liên tục hoặc không lưu được dữ liệu,
-        bạn nên chụp lại thông báo lỗi và gửi qua email contact@vanvietsoft.com để kỹ thuật kiểm tra chi tiết.
-    - text: |
-        Khi gặp sự cố, bạn có thể:
-        - Gọi 024-6686-4555 để gặp kỹ thuật viên  
-        - Gửi mô tả lỗi qua contact@vanvietsoft.com  
-        - Hoặc yêu cầu hỗ trợ từ xa qua TeamViewer
-    - text: |
-        Cảm ơn bạn đã liên hệ!  
-        Đội ngũ kỹ thuật V2S sẽ hỗ trợ bạn khắc phục lỗi phần mềm trong thời gian sớm nhất.
+    - text: "Cảm ơn bạn đã báo sự cố. Bạn vui lòng mô tả chi tiết lỗi hoặc gửi ảnh chụp màn hình để bên kỹ thuật hỗ trợ nhanh hơn nhé."
+    - text: "Bên mình sẽ hỗ trợ kỹ thuật ngay. Bạn có thể nói rõ lỗi '{error_type}' xảy ra lúc nào không?"
 
   utter_ask_remote_support:
-    - text:
-        Dạ được ạ 😊  
-        Để hỗ trợ remote, anh/chị vui lòng gửi mã TeamViewer hoặc AnyDesk cùng mô tả ngắn lỗi đang gặp.  
-        Đội kỹ thuật V2S sẽ liên hệ và hỗ trợ ngay qua kênh từ xa.
-    - text:
-        V2S có hỗ trợ remote qua TeamViewer/AnyDesk.  
-        Anh/chị vui lòng gửi mã truy cập và thông tin liên hệ để kỹ thuật viên hỗ trợ ngay nhé!
+    - text: >
+        Dạ, bên mình có hỗ trợ kỹ thuật từ xa qua TeamViewer hoặc AnyDesk nhé.  
+        Bạn vui lòng gửi **ID và mật khẩu phần mềm điều khiển từ xa** để kỹ thuật viên có thể truy cập và hỗ trợ.  
+        Hoặc liên hệ trực tiếp **hotline 0901 234 567** để được hướng dẫn nhanh nhất.
 
   utter_warranty_policy:
     - text: "Các phần mềm của V2S có chính sách bảo hành tối thiểu 12 tháng và hỗ trợ bảo trì định kỳ."
-    - text: "V2S cam kết bảo hành phần mềm tối thiểu 12 tháng và cung cấp dịch vụ hỗ trợ bảo trì định kỳ cho khách hàng."
-    - text: "Chính sách bảo hành của V2S dành cho phần mềm là tối thiểu 12 tháng, kèm theo dịch vụ hỗ trợ bảo trì định kỳ."
-    - text: "Các sản phẩm phần mềm của V2S được bảo hành tối thiểu 12 tháng và hỗ trợ bảo trì định kỳ nhằm đảm bảo hiệu suất hoạt động."
-    - text: "V2S cam kết cung cấp chính sách bảo hành tối thiểu 12 tháng cho phần mềm, cùng với dịch vụ hỗ trợ bảo trì định kỳ cho khách hàng."
-    - text: "Chính sách bảo hành của V2S dành cho phần mềm là tối thiểu 12 tháng, kèm theo dịch vụ hỗ trợ bảo trì định kỳ nhằm đảm bảo hiệu suất hoạt động."
     - text: "Các sản phẩm phần mềm của V2S được bảo hành tối thiểu 12 tháng và hỗ trợ bảo trì định kỳ cho khách hàng."
-    - text: "V2S cam kết bảo hành phần mềm tối thiểu 12 tháng và cung cấp dịch vụ hỗ trợ bảo trì định kỳ nhằm đảm bảo hiệu suất hoạt động."
-    - text: "Chính sách bảo hành của V2S dành cho phần mềm là tối thiểu 12 tháng, kèm theo dịch vụ hỗ trợ bảo trì định kỳ cho khách hàng."
-    - text: >
-        Công ty TNHH Phát triển phần mềm Văn Việt (V2S) áp dụng chính sách bảo hành và bảo trì linh hoạt cho tất cả các sản phẩm phần mềm.  
-        🛠 Thời gian bảo hành tiêu chuẩn: 12 tháng kể từ ngày bàn giao.  
-        🔄 Trong thời gian bảo hành, V2S sẽ:  
-        • Sửa lỗi phần mềm miễn phí.  
-        • Hỗ trợ kỹ thuật từ xa hoặc trực tiếp (nếu cần).  
-        • Cập nhật và nâng cấp nhỏ (minor update) miễn phí.  
-        🧾 Sau thời gian bảo hành, khách hàng có thể đăng ký gói bảo trì định kỳ hàng năm để tiếp tục được hỗ trợ.
-
-    - text: >
-        Bên mình có chính sách bảo hành 12 tháng sau khi bàn giao phần mềm.  
-        Trong thời gian này, mọi lỗi phát sinh do hệ thống sẽ được xử lý miễn phí.  
-        Ngoài ra, khách hàng có thể đăng ký gói bảo trì định kỳ để được hỗ trợ lâu dài.
-
-    - text: >
-        Tất cả phần mềm của Văn Việt đều được bảo hành ít nhất 1 năm.  
-        Trong giai đoạn này, bên mình sẽ sửa lỗi, hỗ trợ kỹ thuật và cập nhật miễn phí.  
-        Sau thời gian bảo hành, khách hàng có thể chọn gói bảo trì hàng năm để tiếp tục được hỗ trợ.
-
-    - text: >
-        Chính sách bảo hành của V2S bao gồm:  
-        • Thời gian bảo hành: 12 tháng kể từ ngày bàn giao.  
-        • Hỗ trợ kỹ thuật miễn phí trong thời gian bảo hành.  
-        • Cập nhật, sửa lỗi, khôi phục dữ liệu (nếu cần).  
-        Sau khi hết thời gian bảo hành, công ty vẫn hỗ trợ bảo trì có thu phí ưu đãi.
-
-    - text: >
-        Phần mềm được bảo hành 12 tháng sau khi bàn giao.  
-        Trong thời gian bảo hành, bên mình sẽ hỗ trợ khắc phục mọi lỗi phát sinh và cập nhật phần mềm miễn phí.  
-        Sau đó, bạn có thể đăng ký dịch vụ bảo trì định kỳ hàng năm để tiếp tục được hỗ trợ.
+    - text: "Chính sách bảo hành của công ty Văn Việt kéo dài 12 tháng và có hỗ trợ bảo trì định kỳ. Bạn đang muốn hỏi thêm về '{warranty_item}' đúng không?"
+    - text: "Bên mình có chính sách bảo hành 1 năm cho phần mềm, bao gồm cập nhật và bảo trì miễn phí. Bạn muốn biết thêm chi tiết phần nào, ví dụ như '{warranty_item}'?"
+   
 
   utter_promotion:
     - text: >
@@ -341,63 +343,26 @@ responses:
         • Hỗ trợ đào tạo sử dụng phần mềm miễn phí cho khách hàng doanh nghiệp và trường học.  
         👉 Liên hệ bộ phận kinh doanh để biết thêm chi tiết và thời gian áp dụng nhé!
 
-    - text: >
-        Bên mình đang có ưu đãi đặc biệt cho khách hàng mới — giảm giá trực tiếp từ 10% đến 15% tuỳ theo gói dịch vụ.  
-        Ngoài ra, còn có chương trình tặng kèm 3 tháng bảo trì miễn phí khi đăng ký trong tháng này.  
-        Bạn muốn mình gửi chi tiết bảng ưu đãi không?
-
-    - text: >
-        🎁 Hiện tại V2S đang triển khai chương trình tri ân khách hàng:  
-        • Giảm giá 15% cho hợp đồng nâng cấp phần mềm.  
-        • Giảm thêm 5% cho khách hàng cũ khi giới thiệu đối tác mới.  
-        Chương trình áp dụng đến hết tháng này, nhanh tay đăng ký nhé!
-
-    - text: >
-        Đúng rồi, bên Văn Việt đang có chương trình ưu đãi hấp dẫn:  
-        • Giảm giá cho khách hàng mới triển khai phần mềm.  
-        • Tặng thêm thời gian bảo hành hoặc hỗ trợ kỹ thuật miễn phí.  
-        • Ưu đãi đặc biệt cho các dự án giáo dục và cơ quan nhà nước.  
-        Bạn muốn mình gửi thông tin chi tiết gói ưu đãi phù hợp không?
-
-    - text: >
-        Hiện công ty đang có một số chương trình khuyến mãi theo tháng:  
-        • Giảm giá 10% cho khách hàng doanh nghiệp đăng ký gói phần mềm quản lý.  
-        • Tặng bảo trì miễn phí 6 tháng khi triển khai combo phần mềm + dịch vụ.  
-        Liên hệ trực tiếp để nhận thông tin chi tiết nhất nhé!
 
   utter_partner_request:
     - text: >
-        🤝 Cảm ơn bạn đã quan tâm đến việc hợp tác với Công ty TNHH Phát triển phần mềm Văn Việt (V2S)!  
-        Công ty hiện có các chương trình hợp tác linh hoạt dành cho đại lý, nhà phân phối và đối tác triển khai phần mềm.  
-        Bạn có thể gửi thông tin giới thiệu hoặc đề xuất hợp tác qua email: contact@vanvietsoft.com.  
-        Bộ phận kinh doanh sẽ liên hệ sớm để trao đổi chi tiết.
-
-    - text: >
-        Tuyệt vời! Bên mình luôn chào đón các đối tác mới trong lĩnh vực phần mềm, công nghệ giáo dục và chuyển đổi số.  
-        Để đăng ký trở thành đối tác, bạn chỉ cần gửi:  
-        • Thông tin doanh nghiệp  
-        • Lĩnh vực hoạt động  
-        • Mục tiêu hợp tác  
-        ➤ Gửi về email: contact@vanvietsoft.com hoặc liên hệ hotline 024-6686-4555 để được hướng dẫn chi tiết nhé.
-
-    - text: >
-        Hiện tại, V2S đang mở rộng mạng lưới đối tác trên toàn quốc:  
-        • Đại lý phân phối phần mềm  
-        • Đơn vị triển khai, tích hợp hệ thống  
-        • Đối tác kỹ thuật trong các dự án chuyển đổi số  
-        Nếu bạn quan tâm, hãy gửi email đến contact@vanvietsoft.com để nhận tài liệu và chính sách hợp tác cụ thể.
-
-    - text: >
-        Công ty Văn Việt có chính sách chiết khấu hấp dẫn và hỗ trợ kỹ thuật toàn diện cho các đối tác kinh doanh.  
-        Bên mình cũng có chương trình hợp tác phát triển dự án cho doanh nghiệp CNTT và trường học.  
-        Vui lòng gửi thông tin đề xuất qua contact@vanvietsoft.com, bộ phận phụ trách sẽ phản hồi trong giờ làm việc (8h00–17h30, Thứ 2–Thứ 6).
-
-    - text: >
-        Vâng, hiện bên mình có nhận hợp tác với các công ty phần mềm, nhà phân phối và đại lý khu vực.  
-        Chính sách hợp tác bao gồm hỗ trợ kỹ thuật, đào tạo sản phẩm và chiết khấu theo doanh thu.  
-        Bạn có thể liên hệ trực tiếp hotline 024-6686-4555 hoặc gửi email về contact@vanvietsoft.com để thảo luận chi tiết. 
+        Cảm ơn bạn đã quan tâm đến việc hợp tác với Công ty phần mềm Văn Việt!  
+        Bạn vui lòng gửi thông tin chi tiết (tên công ty, lĩnh vực hợp tác, thông tin liên hệ)  
+        qua email **contact@vanvietsoft.vn** hoặc số hotline **0901 234 567** để bộ phận kinh doanh hỗ trợ sớm nhất nhé.
 
 actions:
-  - action_get_time
-  - action_get_weather
   - action_suggest_topics
+  - action_contact_info
+  - action_company_info
+  - action_tell_company_location
+  - action_working_hours
+  - action_product_info
+  - action_provide_pricing
+  - action_save_email
+  - action_provide_demo
+  - action_save_email_demo
+  - action_tech_support
+  - action_warranty_policy
+  - action_promotion_info
+  - action_partner_request
+  - action_ask_remote_support

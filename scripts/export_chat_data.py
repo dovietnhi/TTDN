@@ -2,6 +2,7 @@ from pymongo import MongoClient
 import json
 import os
 import pymongo
+from datetime import datetime
 
 # --- Kết nối MongoDB ---
 mongo_url = os.getenv("MONGO_URL", "mongodb://mongodb:27017/rasa")
@@ -29,7 +30,8 @@ for conv in collection.find():
         conversations.append(convo)
 
 # --- Gộp dữ liệu cũ nếu có ---
-file_path = "chat_data.json"
+timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+file_path = f"/app/chat_data/chat_data_{timestamp}.json"
 
 if os.path.exists(file_path):
     with open(file_path, "r", encoding="utf-8") as f:
@@ -48,3 +50,4 @@ with open(file_path, "w", encoding="utf-8") as f:
     json.dump(merged_data, f, ensure_ascii=False, indent=2)
 
 print(f"✅ Đã xuất {len(conversations)} cuộc hội thoại mới (tổng {len(merged_data)}) vào {file_path}")
+print(f"✅ Đã xuất dữ liệu vào {datetime.now()}")

@@ -1,18 +1,69 @@
 version: "3.1"
 
 rules:
-
-# - rule: greet
-#   steps:
-#   - intent: greet
-#   - action: utter_greet
-
 - rule: Greet and suggest topics
   steps:
   - intent: greet
   - action: utter_greet
   - action: action_suggest_topics
+
+
+- rule: Trả lời giá phần mềm khi chưa biết sản phẩm
+  steps:
+  - intent: pricing
+  - action: utter_ask_product_pricing
   
+- rule: Người dùng đồng ý nhận báo giá
+  steps:
+  - intent: affirm
+  - action: utter_ask_email
+
+- rule: Trả lời giá phần mềm theo sản phẩm
+  steps:
+  - intent: pricing
+  - slot_was_set:
+    - product: not None
+  - action: utter_provide_specific_pricing
+  - action: utter_ask_email
+
+- rule: Trả lời hỏi giá chung
+  steps:
+  - intent: pricing
+  - action: utter_provide_general_pricing
+
+- rule: Xác nhận email gửi báo giá
+  steps:
+  - intent: provide_email
+  - slot_was_set:
+    - email: not None
+  - action: utter_confirm_email
+  - action: utter_thanks
+
+- rule: Demo request khi chưa có email
+  steps:
+  - intent: demo_request
+  - slot_was_set:
+    - email: null
+  - action: utter_demo_request
+  - action: utter_ask_email_demo
+
+- rule: Nhận email để gửi demo
+  steps:
+  - intent: provide_email
+  - slot_was_set:
+    - email: not None
+  - action: utter_confirm_email_demo
+  - action: utter_thanks_demo
+  - slot_was_set:
+    - demo_requested: true
+
+
+
+
+
+
+
+
 - rule: goodbye
   steps:
   - intent: goodbye

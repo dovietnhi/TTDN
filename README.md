@@ -115,3 +115,21 @@ Bạn muốn mình tạo giúp luôn không?
 docker compose exec action_server python /app/scripts/export_chat_data.py
 ## Coppy file trong container ra ngoài
 docker compose cp action_server:/app/chat_data.json ./chat_data.json
+$today = Get-Date -Format "yyyy-MM-dd"
+docker compose cp action_server:/app/chat_data_$today.json ./chat_data_$today.json
+
+#Dò tên file mới nhất và copy tự động
+
+##Nếu bạn không muốn mỗi lần phải nhớ tên file cụ thể:
+
+docker compose exec action_server bash -c "ls -t /app/chat_data | head -n 1"
+
+
+##→ Lệnh này sẽ in ra file JSON mới nhất, ví dụ:
+
+## (1)chat_data_20251106_224454.json
+
+
+##Sau đó copy:
+
+- docker compose cp action_server:/app/chat_data/+(1) ./+(1)

@@ -6,7 +6,10 @@ USER root
 # Copy requirements.txt vào container
 COPY requirements.txt /app/requirements.txt
 WORKDIR /app
-
+# Cài đặt múi giờ Asia/Ho_Chi_Minh
+RUN apt-get update && apt-get install -y tzdata && \
+    ln -fs /usr/share/zoneinfo/Asia/Ho_Chi_Minh /etc/localtime && \
+    dpkg-reconfigure -f noninteractive tzdata
 # Cài đặt thư viện với quyền root
 RUN pip install --no-cache-dir -r /app/requirements.txt
 RUN pip install --no-cache-dir pymongo

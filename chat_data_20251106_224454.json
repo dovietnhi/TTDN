@@ -1,0 +1,375 @@
+[
+  [
+    {
+      "sender": "user",
+      "text": "hi",
+      "intent": "greet"
+    },
+    {
+      "sender": "bot",
+      "text": "Chào bạn 👋! Mình là chatbot hỗ trợ khách hàng của công ty V2S. Mình có thể giúp gì cho bạn hôm nay?"
+    },
+    {
+      "sender": "bot",
+      "text": "Bạn có muốn hỏi thêm về:"
+    },
+    {
+      "sender": "user",
+      "text": "/contact_info",
+      "intent": "contact_info"
+    },
+    {
+      "sender": "bot",
+      "text": "Bạn có thể liên hệ qua hotline: 024-6686-4555 hoặc email: contact@vanvietsoft.com"
+    },
+    {
+      "sender": "user",
+      "text": "hi",
+      "intent": "greet"
+    },
+    {
+      "sender": "bot",
+      "text": "Chào bạn 👋! Mình là chatbot hỗ trợ khách hàng của công ty V2S. Mình có thể giúp gì cho bạn hôm nay?"
+    },
+    {
+      "sender": "bot",
+      "text": "Bạn có muốn hỏi thêm về:"
+    }
+  ],
+  [
+    {
+      "sender": "user",
+      "text": "/greet",
+      "intent": "greet"
+    },
+    {
+      "sender": "bot",
+      "text": "Chào bạn 👋! Mình là chatbot hỗ trợ khách hàng của công ty V2S. Mình có thể giúp gì cho bạn hôm nay?"
+    },
+    {
+      "sender": "bot",
+      "text": "Mình chưa có gợi ý lúc này."
+    }
+  ],
+  [
+    {
+      "sender": "user",
+      "text": "/greet",
+      "intent": "greet"
+    },
+    {
+      "sender": "bot",
+      "text": "Chào bạn 👋! Mình là chatbot hỗ trợ khách hàng của công ty V2S. Mình có thể giúp gì cho bạn hôm nay?"
+    },
+    {
+      "sender": "bot",
+      "text": "Mình chưa có gợi ý lúc này."
+    },
+    {
+      "sender": "user",
+      "text": "hi",
+      "intent": "greet"
+    },
+    {
+      "sender": "bot",
+      "text": "Chào bạn 👋! Mình là chatbot hỗ trợ khách hàng của công ty V2S. Mình có thể giúp gì cho bạn hôm nay?"
+    },
+    {
+      "sender": "bot",
+      "text": "Bạn có muốn hỏi thêm về:"
+    },
+    {
+      "sender": "user",
+      "text": "/restart",
+      "intent": "restart"
+    },
+    {
+      "sender": "user",
+      "text": "/restart",
+      "intent": "restart"
+    },
+    {
+      "sender": "user",
+      "text": "/menu",
+      "intent": "greet"
+    },
+    {
+      "sender": "bot",
+      "text": "Chào bạn 👋! Mình là chatbot hỗ trợ khách hàng của công ty V2S. Mình có thể giúp gì cho bạn hôm nay?"
+    },
+    {
+      "sender": "bot",
+      "text": "Bạn có muốn hỏi thêm về:"
+    },
+    {
+      "sender": "user",
+      "text": "/restart",
+      "intent": "restart"
+    },
+    {
+      "sender": "user",
+      "text": "/restart",
+      "intent": "restart"
+    },
+    {
+      "sender": "user",
+      "text": "hi",
+      "intent": "greet"
+    },
+    {
+      "sender": "bot",
+      "text": "Chào bạn 👋! Mình là chatbot hỗ trợ khách hàng của công ty V2S. Mình có thể giúp gì cho bạn hôm nay?"
+    },
+    {
+      "sender": "user",
+      "text": "mấy giờ rồi",
+      "intent": "working_hours"
+    },
+    {
+      "sender": "bot",
+      "text": "Công ty làm việc từ 8h00 đến 17h30, từ thứ 2 đến thứ 6. Thứ 7 hỗ trợ online."
+    },
+    {
+      "sender": "user",
+      "text": "xin chào",
+      "intent": "greet"
+    },
+    {
+      "sender": "bot",
+      "text": "Chào bạn 👋! Mình là chatbot hỗ trợ khách hàng của công ty V2S. Mình có thể giúp gì cho bạn hôm nay?"
+    },
+    {
+      "sender": "user",
+      "text": "hi",
+      "intent": "greet"
+    },
+    {
+      "sender": "bot",
+      "text": "Chào bạn 👋! Mình là chatbot hỗ trợ khách hàng của công ty V2S. Mình có thể giúp gì cho bạn hôm nay?"
+    },
+    {
+      "sender": "user",
+      "text": "hi",
+      "intent": "greet"
+    },
+    {
+      "sender": "bot",
+      "text": "Chào bạn 👋! Mình là chatbot hỗ trợ khách hàng của công ty V2S. Mình có thể giúp gì cho bạn hôm nay?"
+    },
+    {
+      "sender": "user",
+      "text": "hi",
+      "intent": "greet"
+    },
+    {
+      "sender": "bot",
+      "text": "Chào bạn 👋! Mình là chatbot hỗ trợ khách hàng của công ty V2S. Mình có thể giúp gì cho bạn hôm nay?"
+    },
+    {
+      "sender": "user",
+      "text": "hi",
+      "intent": "greet"
+    },
+    {
+      "sender": "bot",
+      "text": "Chào bạn 👋! Mình là chatbot hỗ trợ khách hàng của công ty V2S. Mình có thể giúp gì cho bạn hôm nay?"
+    },
+    {
+      "sender": "user",
+      "text": "chào",
+      "intent": "greet"
+    },
+    {
+      "sender": "bot",
+      "text": "Chào bạn 👋! Mình là chatbot hỗ trợ khách hàng của công ty V2S. Mình có thể giúp gì cho bạn hôm nay?"
+    },
+    {
+      "sender": "user",
+      "text": "hi",
+      "intent": "greet"
+    },
+    {
+      "sender": "bot",
+      "text": "Chào bạn 👋! Mình là chatbot hỗ trợ khách hàng của công ty V2S. Mình có thể giúp gì cho bạn hôm nay?"
+    },
+    {
+      "sender": "user",
+      "text": "hi",
+      "intent": "greet"
+    },
+    {
+      "sender": "bot",
+      "text": "Chào bạn 👋! Mình là chatbot hỗ trợ khách hàng của công ty V2S. Mình có thể giúp gì cho bạn hôm nay?"
+    },
+    {
+      "sender": "bot",
+      "text": "Bạn có muốn hỏi thêm về:"
+    },
+    {
+      "sender": "user",
+      "text": "/contact_info",
+      "intent": "contact_info"
+    },
+    {
+      "sender": "bot",
+      "text": "Bạn có thể liên hệ qua hotline: 024-6686-4555 hoặc email: contact@vanvietsoft.com"
+    },
+    {
+      "sender": "user",
+      "text": "bao nhiêu",
+      "intent": "pricing"
+    },
+    {
+      "sender": "bot",
+      "text": "Giá sản phẩm tùy theo gói dịch vụ và nhu cầu. Bạn có thể để lại email để nhận báo giá chi tiết."
+    },
+    {
+      "sender": "user",
+      "text": "good bye",
+      "intent": "goodbye"
+    },
+    {
+      "sender": "bot",
+      "text": "Cảm ơn bạn đã liên hệ. Hẹn gặp lại 👋"
+    },
+    {
+      "sender": "user",
+      "text": "erd",
+      "intent": "greet"
+    },
+    {
+      "sender": "bot",
+      "text": "Chào bạn 👋! Mình là chatbot hỗ trợ khách hàng của công ty V2S. Mình có thể giúp gì cho bạn hôm nay?"
+    },
+    {
+      "sender": "bot",
+      "text": "Bạn có muốn hỏi thêm về:"
+    },
+    {
+      "sender": "user",
+      "text": "thông tin công ty",
+      "intent": "company_info"
+    },
+    {
+      "sender": "bot",
+      "text": "Công ty Cổ phần Công nghệ Số V2S chuyên phát triển phần mềm quản lý doanh nghiệp, ERP và các giải pháp số hóa cho doanh nghiệp."
+    },
+    {
+      "sender": "user",
+      "text": "hi",
+      "intent": "greet"
+    },
+    {
+      "sender": "bot",
+      "text": "Chào bạn 👋! Mình là chatbot hỗ trợ khách hàng của công ty V2S. Mình có thể giúp gì cho bạn hôm nay?"
+    },
+    {
+      "sender": "bot",
+      "text": "Bạn có muốn hỏi thêm về:"
+    },
+    {
+      "sender": "user",
+      "text": "sản phẩm",
+      "intent": "partner_request"
+    },
+    {
+      "sender": "bot",
+      "text": "Cảm ơn bạn đã quan tâm! Vui lòng gửi thông tin hợp tác qua email business@vanvietsoft.com để được hỗ trợ."
+    },
+    {
+      "sender": "bot",
+      "text": "Bạn có muốn hỏi thêm về:"
+    },
+    {
+      "sender": "user",
+      "text": "/product_info",
+      "intent": "product_info"
+    },
+    {
+      "sender": "bot",
+      "text": "V2S cung cấp các sản phẩm như: phần mềm hóa đơn điện tử, ERP, CRM và các giải pháp tùy chỉnh cho doanh nghiệp."
+    },
+    {
+      "sender": "bot",
+      "text": "Mình chưa có gợi ý lúc này."
+    },
+    {
+      "sender": "user",
+      "text": "hi",
+      "intent": "greet"
+    },
+    {
+      "sender": "bot",
+      "text": "Chào bạn 👋! Mình là chatbot hỗ trợ khách hàng của công ty V2S. Mình có thể giúp gì cho bạn hôm nay?"
+    },
+    {
+      "sender": "bot",
+      "text": "Bạn có muốn hỏi thêm về:"
+    },
+    {
+      "sender": "user",
+      "text": "hi",
+      "intent": "greet"
+    },
+    {
+      "sender": "bot",
+      "text": "Chào bạn 👋! Mình là chatbot hỗ trợ khách hàng của công ty V2S. Mình có thể giúp gì cho bạn hôm nay?"
+    },
+    {
+      "sender": "bot",
+      "text": "Bạn có muốn hỏi thêm về:"
+    },
+    {
+      "sender": "user",
+      "text": "/contact_info",
+      "intent": "contact_info"
+    },
+    {
+      "sender": "bot",
+      "text": "Bạn có thể liên hệ qua hotline: 024-6686-4555 hoặc email: contact@vanvietsoft.com"
+    },
+    {
+      "sender": "bot",
+      "text": "Mình chưa có gợi ý lúc này."
+    },
+    {
+      "sender": "user",
+      "text": "hi",
+      "intent": "greet"
+    },
+    {
+      "sender": "bot",
+      "text": "Chào bạn 👋! Mình là chatbot hỗ trợ khách hàng của công ty V2S. Mình có thể giúp gì cho bạn hôm nay?"
+    },
+    {
+      "sender": "bot",
+      "text": "Bạn có muốn hỏi thêm về:"
+    },
+    {
+      "sender": "user",
+      "text": "/contact_info",
+      "intent": "contact_info"
+    },
+    {
+      "sender": "bot",
+      "text": "Bạn có thể liên hệ qua hotline: 024-6686-4555 hoặc email: contact@vanvietsoft.com"
+    },
+    {
+      "sender": "bot",
+      "text": "Mình chưa có gợi ý lúc này."
+    },
+    {
+      "sender": "user",
+      "text": "hi",
+      "intent": "greet"
+    },
+    {
+      "sender": "bot",
+      "text": "Chào bạn 👋! Mình là chatbot hỗ trợ khách hàng của công ty V2S. Mình có thể giúp gì cho bạn hôm nay?"
+    },
+    {
+      "sender": "bot",
+      "text": "Bạn có muốn hỏi thêm về:"
+    }
+  ]
+]

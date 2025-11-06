@@ -1,78 +1,90 @@
 version: "3.1"
 stories:
-  - story: chào hỏi
-    steps:
-    - intent: greet
-    - action: utter_greet
-    - action: action_suggest_topics
     
   - story: hỏi thông tin công ty
     steps:
     - intent: company_info
-    - action: utter_company_info
+    - action: action_company_info
     - action: action_suggest_topics
-  - story: hỏi địa chỉ công ty
+
+  - story: trả lời địa chỉ công ty
     steps:
     - intent: ask_company_location
-    - action: utter_company_location
+    - action: action_tell_company_location
     - action: action_suggest_topics
+
   - story: hỏi giờ làm việc
     steps:
-    - intent: working_hours
-    - action: utter_working_hours
-    - action: action_suggest_topics
+      - intent: working_hours
+      - action: action_working_hours
+      - action: action_suggest_topics
+
   - story: hỏi liên hệ
     steps:
     - intent: contact_info
-    - action: utter_contact_info
+    - action: action_contact_info
     - action: action_suggest_topics
-  - story: hỏi sản phẩm
+
+  - story: trả lời thông tin sản phẩm
     steps:
     - intent: product_info
-    - action: utter_product_info
+    - action: action_product_info
     - action: action_suggest_topics
-  - story: hỏi thông tin sản phẩm cụ thể
-    steps:
-    - intent: ask_product_info
-    - action: utter_ask_product_info
-    - action: action_suggest_topics
-  - story: hỏi giá
+
+  - story: pricing chưa có email
     steps:
     - intent: pricing
-    - action: utter_pricing
-    - action: action_suggest_topics
-  - story: yêu cầu demo
+    - slot_was_set:
+      - email_provided: false
+    - action: utter_ask_email
+  
+  - story: pricing đã có email
+    steps:
+    - intent: pricing
+    - slot_was_set:
+      - email_provided: true
+    - action: action_provide_pricing
+
+  - story: Lưu email người dùng cung cấp
+    steps:
+    - intent: pricing
+    - action: utter_ask_email
+    - intent: provide_email
+    - slot_was_set:
+        - email_purpose: pricing
+    - action: action_save_email
+
+  - story: Xử lý khi người dùng yêu cầu demo
     steps:
     - intent: demo_request
-    - action: utter_demo_request
-    - action: action_suggest_topics
-  - story: hỗ trợ kỹ thuật
+    - action: action_provide_demo
+
+  - story: demo_request
     steps:
-    - intent: tech_support
-    - action: utter_tech_support
-    - action: action_suggest_topics
+    - intent: demo_request
+    - action: action_provide_demo
+
+  - story: Người dùng yêu cầu hỗ trợ kỹ thuật
+    steps:
+      - intent: tech_support
+      - action: action_tech_support
+
   - story: hỏi hỗ trợ remote
     steps:
     - intent: ask_remote_support
-    - action: utter_ask_remote_support
-    - action: action_suggest_topics
-  - story: chính sách bảo hành
+    - action: action_ask_remote_support
+
+  - story: Người dùng hỏi về chính sách bảo hành
     steps:
-    - intent: warranty_policy
-    - action: utter_warranty_policy
-    - action: action_suggest_topics
-  - story: khuyến mãi
+      - intent: warranty_policy
+      - action: action_warranty_policy
+
+  - story: Trả lời thông tin khuyến mãi
     steps:
-    - intent: promotion
-    - action: utter_promotion
-    - action: action_suggest_topics
+      - intent: promotion
+      - action: action_promotion_info
+
   - story: hợp tác đối tác
     steps:
     - intent: partner_request
-    - action: utter_partner_request
-    - action: action_suggest_topics
-  
-  - story: goodbye
-    steps:
-    - intent: goodbye
-    - action: utter_goodbye
+    - action: action_partner_request

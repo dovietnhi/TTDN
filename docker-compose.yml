@@ -1,12 +1,13 @@
-version: "3.0"
-
 services:
   rasa:
-    image: rasa/rasa:3.6.20
+    build:
+      context: .
+      dockerfile: Dockerfile.rasa
     ports:
       - "5005:5005"
     volumes:
       - ./:/app
+      - ./endpoints.yml:/app/endpoints.yml
     command:
       - run
       - --enable-api
@@ -17,6 +18,7 @@ services:
       - mongodb
     environment:
       - MONGO_URL=mongodb://mongodb:27017/rasa
+      - TZ=Asia/Ho_Chi_Minh
     networks:
       - rasa_network
 
@@ -27,12 +29,14 @@ services:
     volumes:
       - ./actions:/app/actions
       - ./scripts:/app/scripts
+      - ./chat_data:/app/chat_data
     ports:
       - "5055:5055"
     depends_on:
       - mongodb
     environment:
       - MONGO_URL=mongodb://mongodb:27017/rasa
+      - TZ=Asia/Ho_Chi_Minh
     networks:
       - rasa_network
 
