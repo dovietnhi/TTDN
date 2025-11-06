@@ -13,6 +13,8 @@ services:
       - --enable-api
       - --cors
       - "*"
+      - --endpoints
+      - /app/endpoints.yml
     depends_on:
       - action_server
       - mongodb
