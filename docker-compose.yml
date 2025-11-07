@@ -1,3 +1,5 @@
+version: "3.9"
+
 services:
   rasa:
     build:
@@ -17,10 +19,7 @@ services:
       - /app/endpoints.yml
     depends_on:
       - action_server
-      - mongodb
-    environment:
-      - MONGO_URL=mongodb://mongodb:27017/rasa
-      - TZ=Asia/Ho_Chi_Minh
+      - postgres
     networks:
       - rasa_network
 
@@ -35,25 +34,26 @@ services:
     ports:
       - "5055:5055"
     depends_on:
-      - mongodb
-    environment:
-      - MONGO_URL=mongodb://mongodb:27017/rasa
-      - TZ=Asia/Ho_Chi_Minh
+      - postgres
     networks:
       - rasa_network
 
-  mongodb:
-    image: mongo:6.0
-    container_name: mongodb
+  postgres:
+    image: postgres:15
+    container_name: postgres
+    environment:
+      POSTGRES_DB: rasa_db
+      POSTGRES_USER: rasa
+      POSTGRES_PASSWORD: rasa_password
     ports:
-      - "27017:27017"
+      - "5432:5432"
     volumes:
-      - mongo_data:/data/db
+      - pg_data:/var/lib/postgresql/data
     networks:
       - rasa_network
 
 volumes:
-  mongo_data:
+  pg_data:
 
 networks:
   rasa_network:

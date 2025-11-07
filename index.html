@@ -1,46 +1,72 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Chatbot Demo</title>
-    <script src="https://cdn.jsdelivr.net/npm/rasa-webchat/lib/index.js"></script>
-    <style>
-      /* Định dạng tổng thể */
-      .rw-message {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: flex-start;
-        margin-bottom: 8px;
-      }
-      /* Tin nhắn của người dùng */
-      .rw-message.rw-client {
-        align-items: flex-end;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="webchat"></div>
-    <script>
-      function saveMessageLocal(sender, message) {
-      const chat = JSON.parse(localStorage.getItem('chatHistory_v1')) || []; 
-      chat.push({ sender, message, time: new Date().toISOString() }); 
-      localStorage.setItem('chatHistory_v1', JSON.stringify(chat)); 
+<head>
+  <meta charset="UTF-8">
+  <title>Webchat Demo</title>
+  <script src="https://cdn.jsdelivr.net/npm/rasa-webchat/lib/index.js"></script>
+  <style>
+    .rw-message { display: flex !important; flex-direction: column !important; align-items: flex-start; margin-bottom: 8px; }
+    .rw-message.rw-client { align-items: flex-end; }
+  </style>
+</head>
+<body>
+  <div id="webchat"></div>
+  <script>
+    function sendToDB(sender, text, intent=null, buttons=null, is_bot=false) {
+      console.log("[DEBUG] Sending to API:", sender, text);
+      fetch('http://localhost:8000/save_message/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          sender_id: sender,
+          is_bot: is_bot,
+          text: text,
+          intent: intent,
+          buttons: buttons,
+          timestamp: new Date().toISOString()
+        })
+      })
+      .then(res => res.json())
+      .then(data => console.log("[DEBUG] DB Response:", data))
+      .catch(err => console.error("[ERROR] DB fetch:", err));
     }
-// --- Khởi động chatbot ---
-window.WebChat.default({
-  initPayload: '/greet',
-  socketUrl: 'http://localhost:5005',
-  socketPath: '/socket.io/',
-  title: 'Rasa Chatbot',
-  subtitle: 'Xin chào!',
-  params: { storage: "local" },
-  onSocketEvent: {
-    'user_uttered': (e) => { if (e?.text) saveMessageLocal('Bạn', e.text); },
-    'bot_uttered': (e) => { if (e?.text) saveMessageLocal('Bot', e.text); }
-  }
-}, null);
 
-</script>
+    window.WebChat.default({
+    initPayload: '/greet',
+    socketUrl: 'http://localhost:5005',
+    socketPath: '/socket.io/',
+    title: 'Chatbot V2S',
+    subtitle: 'Xin chào!',
+    params: {
+      storage: "local",
+      sender: "test_user_webchat",
+      customData: { user_id: "test_user_webchat" }
+    },
 
-  </body>
+    onSendMessage: (message) => {
+      console.log("[DEBUG] User sent:", message);
+      sendToDB(
+        "test_user_webchat",
+        message.text,
+        null,
+        null,
+        false
+      );
+    },
+
+    onSocketEvent: {
+      'bot_uttered': (e) => {
+        console.log("[DEBUG] Bot event:", e);
+        let buttonsSafe = null;
+        if (e.buttons) {
+          buttonsSafe = e.buttons.map(b => ({ title: b.title || b, payload: b.payload || null }));
+        } else if (e.quick_replies) {
+          buttonsSafe = e.quick_replies.map(b => ({ title: b.title || b, payload: b.payload || null }));
+        }
+        sendToDB("test_user_webchat", e.text, null, buttonsSafe, true);
+      }
+    }
+  }, null);
+  </script>
+</body>
 </html>

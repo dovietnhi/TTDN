@@ -1,9 +1,9 @@
 FROM rasa/rasa:3.6.20
 
-# Cài thêm thư viện cần thiết cho MongoDB
-RUN pip install --no-cache-dir pymongo
+# Cài thư viện PostgreSQL
+RUN pip install --no-cache-dir psycopg2-binary
 
-# Đặt timezone cho Việt Nam (tuỳ chọn)
+# Đặt timezone
 ENV TZ=Asia/Ho_Chi_Minh
 
 # Chạy Rasa

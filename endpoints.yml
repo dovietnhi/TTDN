@@ -1,10 +1,7 @@
-action_endpoint:
+action_endpoint: 
   url: "http://action_server:5055/webhook"
 
 tracker_store:
-  type: mongo
-  url: "mongodb"
-  port: 27017
-  db: rasa
-  collection: conversations
-
+  type: SQL
+  dialect: "postgresql"
+  url: "postgresql://rasa:rasa_password@postgres:5432/rasa_db"
