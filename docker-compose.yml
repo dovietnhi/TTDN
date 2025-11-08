@@ -1,15 +1,16 @@
+<<<<<<< HEAD
 version: "3.9"
+=======
+version: "3.0"
+>>>>>>> parent of 7438095 (6/11)
 
 services:
   rasa:
-    build:
-      context: .
-      dockerfile: Dockerfile.rasa
+    image: rasa/rasa:3.6.20
     ports:
       - "5005:5005"
     volumes:
       - ./:/app
-      - ./endpoints.yml:/app/endpoints.yml
     command:
       - run
       - --enable-api
@@ -19,7 +20,13 @@ services:
       - /app/endpoints.yml
     depends_on:
       - action_server
+<<<<<<< HEAD
       - postgres
+=======
+      - mongodb
+    environment:
+      - MONGO_URL=mongodb://mongodb:27017/rasa
+>>>>>>> parent of 7438095 (6/11)
     networks:
       - rasa_network
 
@@ -30,11 +37,16 @@ services:
     volumes:
       - ./actions:/app/actions
       - ./scripts:/app/scripts
-      - ./chat_data:/app/chat_data
     ports:
       - "5055:5055"
     depends_on:
+<<<<<<< HEAD
       - postgres
+=======
+      - mongodb
+    environment:
+      - MONGO_URL=mongodb://mongodb:27017/rasa
+>>>>>>> parent of 7438095 (6/11)
     networks:
       - rasa_network
 

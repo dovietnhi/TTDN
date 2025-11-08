@@ -1,6 +1,0 @@
-[
-  {
-    "name": "contact_type",
-    "pattern": "(\\bhotline\\b|\\bemail\\b|\\bzalo\\b|\\bfanpage\\b|\\bđịa\\ chỉ\\b)"
-  }
-]
