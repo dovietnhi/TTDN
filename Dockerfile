@@ -5,7 +5,7 @@ USER root
 
 WORKDIR /app
 
-<<<<<<< HEAD
+
 # Cài múi giờ
 RUN apt-get update && apt-get install -y tzdata && \
     ln -fs /usr/share/zoneinfo/Asia/Ho_Chi_Minh /etc/localtime && \
@@ -13,9 +13,9 @@ RUN apt-get update && apt-get install -y tzdata && \
 
 # Cài các thư viện từ requirements nếu có
 COPY requirements.txt /app/requirements.txt
-=======
+
 # Cài đặt thư viện với quyền root
->>>>>>> parent of 7438095 (6/11)
+
 RUN pip install --no-cache-dir -r /app/requirements.txt
 
 # Copy actions
