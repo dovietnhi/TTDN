@@ -3,6 +3,9 @@ action_endpoint:
 
 tracker_store:
   type: mongo
-  url: "mongodb://mongodb:27017/rasa"
-  db: rasa
-  collection: conversations
+  url: mongodb
+  port: 27017
+  db: rasa 
+  username: ""
+  password: ""
+  auth_source: admin
