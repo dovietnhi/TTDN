@@ -8,9 +8,14 @@ services:
     volumes:
       - ./:/app
       - ./endpoints.yml:/app/endpoints.yml
-    command: >
-      /bin/bash -c "dockerize -wait tcp://mongodb:27017 -timeout 60s &&
-      rasa run --enable-api --cors '*' --endpoints /app/endpoints.yml --debug"
+    command:
+      - run
+      - --enable-api
+      - --cors
+      - "*"
+      - --endpoints
+      - /app/endpoints.yml
+      - --debug
     depends_on:
       - mongodb
       - action_server
