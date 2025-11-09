@@ -1,0 +1,74 @@
+[
+  {
+    "name": "contact_type",
+    "pattern": "(\\bhotline\\b|\\bemail\\b|\\bzalo\\b|\\bfanpage\\b)"
+  },
+  {
+    "name": "organization",
+    "pattern": "(\\bV2S\\b|\\bVăn\\ Việt\\b|\\bCông\\ ty\\ Văn\\ Việt\\b|\\bCông\\ ty\\ phần\\ mềm\\ Văn\\ Việt\\b|\\bCông\\ ty\\ TNHH\\ Phát\\ triển\\ Phần\\ mềm\\ Văn\\ Việt\\b|\\bVăn\\ Việt\\ Software\\b|\\bV2S\\ Software\\b)"
+  },
+  {
+    "name": "info_type",
+    "pattern": "(\\blĩnh\\ vực\\b|\\bngành\\ nghề\\b|\\bsản\\ phẩm\\b|\\bdịch\\ vụ\\b|\\bgiải\\ pháp\\b|\\bphần\\ mềm\\b|\\bERP\\b|\\bCRM\\b|\\bhóa\\ đơn\\ điện\\ tử\\b|\\bđịnh\\ hướng\\b|\\bsứ\\ mệnh\\b|\\bmục\\ tiêu\\b)"
+  },
+  {
+    "name": "company_address",
+    "pattern": "(\\bHà\\ Nội\\b|\\bTP\\.HCM\\b|\\bĐà\\ Nẵng\\b|\\bCầu\\ Giấy\\b|\\bTrụ\\ sở\\b|\\bVăn\\ phòng\\b|\\bChi\\ nhánh\\b|\\bĐịa\\ chỉ\\b)"
+  },
+  {
+    "name": "work_time_period",
+    "pattern": "(\\bthứ\\ 7\\b|\\bchủ\\ nhật\\b|\\bcuối\\ tuần\\b|\\bngày\\ lễ\\b|\\bbuổi\\ tối\\b|\\bgiờ\\ hành\\ chính\\b|\\bbuổi\\ sáng\\b|\\bbuổi\\ trưa\\b|\\b24/7\\b)"
+  },
+  {
+    "name": "product",
+    "pattern": "(\\bERP\\b|\\bCRM\\b|\\bhóa\\ đơn\\ điện\\ tử\\b|\\bquản\\ lý\\ giáo\\ dục\\b|\\bquản\\ lý\\ nhân\\ sự\\b|\\bquản\\ lý\\ kho\\b|\\bquản\\ lý\\ doanh\\ nghiệp\\b|\\bquản\\ lý\\ bán\\ hàng\\b|\\bphần\\ mềm\\ theo\\ yêu\\ cầu\\b|\\bchuyển\\ đổi\\ số\\b|\\bphần\\ mềm\\ quản\\ lý\\ doanh\\ nghiệp\\b)"
+  },
+  {
+    "name": "email",
+    "pattern": "(\\bcontact@gmail\\.com\\b|\\bminh@abc\\.vn\\b|\\binfo@vanvietsoft\\.com\\b|\\bnhi123@gmail\\.com\\b|\\bsales@v2s\\.vn\\b)"
+  },
+  {
+    "name": "error_type",
+    "pattern": "(\\bcài\\ đặt\\ thất\\ bại\\b|\\bkhông\\ đăng\\ nhập\\ được\\b|\\bmất\\ dữ\\ liệu\\b|\\bchạy\\ chậm\\b|\\btreo\\ máy\\b|\\blỗi\\ hệ\\ thống\\b|\\bkhông\\ lưu\\ được\\ dữ\\ liệu\\b|\\bbáo\\ lỗi\\ liên\\ tục\\b)"
+  },
+  {
+    "name": "warranty_item",
+    "pattern": "(\\bbảo\\ hành\\b|\\bbảo\\ trì\\ định\\ kỳ\\b|\\bchính\\ sách\\ bảo\\ hành\\b|\\bdịch\\ vụ\\ bảo\\ hành\\b|\\bthời\\ gian\\ bảo\\ hành\\b|\\bhỗ\\ trợ\\ kỹ\\ thuật\\ miễn\\ phí\\b|\\bgói\\ bảo\\ trì\\ và\\ nâng\\ cấp\\ phần\\ mềm\\b)"
+  },
+  {
+    "name": "promotion_type",
+    "pattern": "(\\bưu\\ đãi\\b|\\bgiảm\\ giá\\b|\\bkhuyến\\ mãi\\b|\\btri\\ ân\\ khách\\ hàng\\b|\\bkhách\\ hàng\\ mới\\b|\\bưu\\ đãi\\ đặc\\ biệt\\b|\\bgiới\\ thiệu\\ nhận\\ thưởng\\b)"
+  },
+  {
+    "name": "promotion_event",
+    "pattern": "(\\bưu\\ đãi\\b|\\blễ\\ 20/11\\b|\\btết\\ nguyên\\ đán\\b|\\bngày\\ quốc\\ tế\\ phụ\\ nữ\\ 8/3\\b|\\bngày\\ nhà\\ giáo\\ Việt\\ Nam\\ 20/11\\b|\\bngày\\ doanh\\ nhân\\ Việt\\ Nam\\ 13/10\\b|\\bgiảm\\ giá\\b|\\bkhuyến\\ mãi\\b|\\btri\\ ân\\ khách\\ hàng\\b|\\bkhách\\ hàng\\ mới\\b|\\bưu\\ đãi\\ đặc\\ biệt\\b|\\bgiới\\ thiệu\\ nhận\\ thưởng\\b)"
+  },
+  {
+    "name": "partner_type",
+    "pattern": "(\\bđại\\ lý\\b|\\bđối\\ tác\\ phân\\ phối\\ phần\\ mềm\\b|\\bcộng\\ tác\\ viên\\b|\\bđại\\ lý\\b|\\bđối\\ tác\\ phân\\ phối\\ phần\\ mềm\\b|\\bcộng\\ tác\\ viên\\b)"
+  },
+  {
+    "name": "company_name",
+    "pattern": "(\\bV2S\\b|\\bVăn\\ Việt\\b|\\bCông\\ ty\\ Văn\\ Việt\\b|\\bCông\\ ty\\ phần\\ mềm\\ Văn\\ Việt\\b|\\bCông\\ ty\\ TNHH\\ Phát\\ triển\\ Phần\\ mềm\\ Văn\\ Việt\\b)"
+  },
+  {
+    "name": "collab_field",
+    "pattern": "(\\bdoanh\\ nghiệp\\ CNTT\\b|\\bphát\\ triển\\ phần\\ mềm\\b|\\bphân\\ phối\\ phần\\ mềm\\b)"
+  },
+  {
+    "name": "contact_method",
+    "pattern": "(\\bemail\\b|\\bđiện\\ thoại\\b|\\bzalo\\b|\\bfanpage\\b|\\bmessenger\\b|\\btổng\\ đài\\b|\\btelegram\\b)"
+  },
+  {
+    "name": "tech_support_method",
+    "pattern": "(\\bTeamViewer\\b|\\bremote\\b|\\bhỗ\\ trợ\\ từ\\ xa\\b)"
+  },
+  {
+    "name": "remote_tool",
+    "pattern": "(\\bTeamViewer\\b|\\bAnyDesk\\b|\\bUltraViewer\\b)"
+  },
+  {
+    "name": "support_type",
+    "pattern": "(\\bremote\\b|\\btừ\\ xa\\b)"
+  }
+]

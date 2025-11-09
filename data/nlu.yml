@@ -189,6 +189,7 @@ nlu:
     - Mình muốn biết giá phần mềm bên bạn.
     - Chi phí sử dụng phần mềm hàng tháng là bao nhiêu?
     - Có thể gửi bảng báo giá qua email không?
+    
 - intent: affirm
   examples: |
     - Có
@@ -447,11 +448,18 @@ nlu:
     - giới thiệu nhận thưởng
 - lookup: promotion_event
   examples: |
+    - ưu đãi
     - lễ 20/11
     - tết nguyên đán
     - ngày quốc tế phụ nữ 8/3
     - ngày nhà giáo Việt Nam 20/11
     - ngày doanh nhân Việt Nam 13/10 
+    - giảm giá
+    - khuyến mãi
+    - tri ân khách hàng
+    - khách hàng mới
+    - ưu đãi đặc biệt
+    - giới thiệu nhận thưởng
 - lookup: partner_type
   examples: |
     - đại lý

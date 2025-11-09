@@ -17,6 +17,7 @@ intents:
   - ask_remote_support
   - affirm
   - provide_email
+  - ask_product_info
   
 entities:
   - product
@@ -160,7 +161,10 @@ slots:
     mappings:
       - type: from_entity
         entity: remote_tool
-
+  email_context:
+    type: text
+    mappings:
+      - type: from_text
   email_provided:
     type: bool
     initial_value: false
@@ -184,7 +188,14 @@ slots:
       - type: from_intent
         intent: deny
         value: false
-
+        
+  issue_type:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: error_type
+    
 responses:
   utter_greet:
     - text: "Chào bạn 👋! Mình là chatbot hỗ trợ khách hàng của công ty V2S. Mình có thể giúp gì cho bạn hôm nay?"

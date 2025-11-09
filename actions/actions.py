@@ -140,7 +140,7 @@ class ActionProductInfo(Action):
             elif "CRM" in product.upper():
                 dispatcher.utter_message(text="Giải pháp CRM của V2S giúp doanh nghiệp quản lý khách hàng, chăm sóc và tăng hiệu quả bán hàng.")
             elif "hóa đơn điện tử" in product.lower():
-                dispatcher.utter_message(text="Phần mềm hóa đơn điện tử của V2S tuân thủ quy định của Tổng cục Thuế, dễ tích hợp với các hệ thống khác.")
+                dispatcher.utter_message(text="Phần mềm hóa đơn điện tử của V2S là công cụ giúp doanh nghiệp tạo, gửi và quản lý hóa đơn điện tử theo quy định của Tổng cục Thuế, đồng thời dễ dàng tích hợp với các hệ thống khác.")
             elif "nhân sự" in product.lower():
                 dispatcher.utter_message(text="Phần mềm quản lý nhân sự hỗ trợ chấm công, tính lương và quản lý hồ sơ nhân viên hiệu quả.")
             elif "giáo dục" in product.lower():
@@ -168,29 +168,37 @@ class ActionProvidePricing(Action):
         if product:
             dispatcher.utter_message(
                 text=f"Giá phần mềm {product} phụ thuộc vào quy mô và tính năng bạn cần. "
-                     f"Bạn có muốn mình gửi báo giá chi tiết qua email không?"
+                    f"Bạn có muốn mình gửi báo giá chi tiết qua email không?"
             )
         else:
             dispatcher.utter_message(
                 text="Giá phần mềm phụ thuộc vào từng sản phẩm. "
-                     "Bạn muốn hỏi giá phần mềm nào ạ?"
+                    "Bạn muốn hỏi giá phần mềm nào ạ?"
             )
-        return [SlotSet("product", None)]
 
-class ActionSaveEmail(Action):
+        return [SlotSet("email_context", "pricing")]
+
+
+class ActionProvideDemo(Action):
     def name(self):
-        return "action_save_email"
+        return "action_provide_demo"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: dict):
-        email = next(tracker.get_latest_entity_values("email"), None)
-        if email:
-            dispatcher.utter_message(text=f"Mình đã ghi nhận email {email}. Bộ phận kinh doanh sẽ gửi báo giá sớm nhất!")
-            dispatcher.utter_message(text="Cảm ơn bạn đã quan tâm! 😊")
+    def run(self, dispatcher, tracker, domain):
+        product = tracker.get_slot("product")
+
+        if product:
+            dispatcher.utter_message(
+                text=f"Công ty hiện có bản demo cho phần mềm {product}. "
+                     "Bạn có muốn mình gửi link demo qua email không?"
+            )
         else:
-            dispatcher.utter_message(text="Mình chưa nhận được email của bạn, vui lòng nhập lại nhé.")
-        return []
+            dispatcher.utter_message(
+                text="Bên mình có hỗ trợ demo cho nhiều phần mềm khác nhau. "
+                     "Bạn có muốn mình gửi link demo và tài liệu hướng dẫn qua email không?"
+            )
+
+        # set slot email_context = demo để rule chọn đúng action khi người dùng affirm
+        return [SlotSet("product", None), SlotSet("email_context", "demo")]
 class ActionProvideDemo(Action):
     def name(self):
         return "action_provide_demo"
@@ -210,16 +218,40 @@ class ActionProvideDemo(Action):
                 text="Bên mình có hỗ trợ demo cho nhiều phần mềm khác nhau. "
                      "Bạn có muốn mình gửi link demo và tài liệu hướng dẫn qua email không?"
             )
-        return [SlotSet("product", None)]
+        return [SlotSet("email_context", "demo")]
+
+class ActionSaveEmail(Action):
+    def name(self):
+        return "action_save_email"
+
+    def run(self, dispatcher, tracker, domain):
+        email = next(tracker.get_latest_entity_values("email"), None)
+
+        if email:
+            dispatcher.utter_message(
+                text=f"Mình đã ghi nhận email {email}. Bộ phận kinh doanh sẽ gửi báo giá sớm nhất!"
+            )
+            dispatcher.utter_message(
+                text="Cảm ơn bạn đã quan tâm! 😊"
+            )
+            return [SlotSet("email", email), SlotSet("email_context", None)]
+        else:
+            dispatcher.utter_message(
+                text="Mình chưa nhận được email của bạn, vui lòng nhập lại nhé."
+            )
+            return []
 
 class ActionSaveEmailDemo(Action):
-    def name(self):
+    def name(self) -> Text:
         return "action_save_email_demo"
 
-    def run(self, dispatcher: CollectingDispatcher,
+    def run(self,
+            dispatcher: CollectingDispatcher,
             tracker: Tracker,
-            domain: dict):
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
         email = next(tracker.get_latest_entity_values("email"), None)
+
         if email:
             dispatcher.utter_message(
                 text=f"Mình đã ghi nhận email {email}. Bộ phận kinh doanh sẽ gửi link demo sớm nhất!"
@@ -227,9 +259,12 @@ class ActionSaveEmailDemo(Action):
             dispatcher.utter_message(
                 text="Cảm ơn bạn đã quan tâm sản phẩm của Văn Việt! 😊"
             )
+            return [SlotSet("email", email)]
         else:
-            dispatcher.utter_message(text="Mình chưa nhận được email của bạn, vui lòng nhập lại nhé.")
-        return []
+            dispatcher.utter_message(
+                text="Mình chưa nhận được email của bạn, vui lòng nhập lại nhé."
+            )
+            return []
 class ActionTechSupport(Action):
     def name(self) -> Text:
         return "action_tech_support"
@@ -240,22 +275,26 @@ class ActionTechSupport(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         issue_type = tracker.get_slot("issue_type")
+        msg = ""
 
         if issue_type:
-            issue_type = issue_type.lower()
-            if "lỗi phần mềm" in issue_type:
+            itype = issue_type.lower()
+            if "lỗi phần mềm" in itype:
                 msg = "Bạn vui lòng cung cấp thêm thông tin về lỗi phần mềm bạn gặp phải để mình hỗ trợ nhé."
-            elif "hướng dẫn sử dụng" in issue_type:
-                msg = "Bạn có thể tham khảo tài liệu hướng dẫn sử dụng trên website của chúng tôi hoặc mình có thể gửi qua email cho bạn."
-            elif "cập nhật" in issue_type:
-                msg = "Để cập nhật phần mềm, bạn vui lòng truy cập vào trang quản lý tài khoản hoặc liên hệ bộ phận kỹ thuật để được hỗ trợ."
+            elif "hướng dẫn sử dụng" in itype:
+                msg = "Bạn có thể tham khảo tài liệu hướng dẫn sử dụng trên website hoặc mình có thể gửi qua email cho bạn."
+            elif "cập nhật" in itype:
+                msg = "Để cập nhật phần mềm, vui lòng truy cập trang quản lý tài khoản hoặc liên hệ bộ phận kỹ thuật để được hỗ trợ."
             else:
-                msg = f"Bạn đang gặp vấn đề về '{issue_type}', đúng không? Vui lòng cung cấp thêm chi tiết để mình hỗ trợ tốt hơn."
-
+                msg = (
+                    f"Bạn đang gặp vấn đề về '{issue_type}', đúng không? "
+                    "Vui lòng cung cấp thêm chi tiết để mình hỗ trợ tốt hơn."
+                )
         else:
             msg = "Bạn cần hỗ trợ kỹ thuật về vấn đề gì? Vui lòng cung cấp thêm thông tin để mình giúp bạn nhé."
 
         dispatcher.utter_message(text=msg)
+        # Reset slot để lần hỏi tiếp theo không bị nhầm
         return [SlotSet("issue_type", None)]
     
 class ActionWarrantyPolicy(Action):
@@ -268,25 +307,34 @@ class ActionWarrantyPolicy(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         warranty_item = tracker.get_slot("warranty_item")
+        msg = ""
 
-        # ✅ Xử lý logic tùy theo entity mà người dùng hỏi
         if warranty_item:
-            warranty_item = warranty_item.lower()
-            if "thời gian" in warranty_item:
+            item = warranty_item.lower()
+            if "thời gian" in item:
                 msg = "Thời gian bảo hành phần mềm là **12 tháng** kể từ ngày bàn giao."
-            elif "bảo trì" in warranty_item:
+            elif "thời gian" in item:
+                msg = "Thời gian bảo hành phần mềm là **12 tháng** kể từ ngày bàn giao."
+            elif "bảo trì" in item:
                 msg = "Bên mình có **dịch vụ bảo trì định kỳ miễn phí trong 1 năm đầu**, sau đó có gói bảo trì hàng năm."
-            elif "nâng cấp" in warranty_item:
+            elif "nâng cấp" in item:
                 msg = "Trong thời gian bảo hành, phần mềm được **cập nhật và nâng cấp miễn phí**."
-            elif "phí" in warranty_item or "mất phí" in warranty_item:
+            elif "phí" in item or "mất phí" in item:
                 msg = "Mọi lỗi kỹ thuật trong thời gian bảo hành đều **được hỗ trợ miễn phí**."
             else:
-                msg = f"Công ty có chính sách bảo hành và bảo trì đầy đủ. Bạn đang hỏi về '{warranty_item}', đúng không?"
-
+                msg = (
+                    "Công ty có chính sách bảo hành và bảo trì đầy đủ. "
+                    
+                )
         else:
-            msg = "Chính sách bảo hành phần mềm của công ty Văn Việt kéo dài **12 tháng**, có hỗ trợ cập nhật và bảo trì miễn phí."
+            msg = (
+                "Chính sách bảo hành phần mềm của công ty Văn Việt kéo dài **12 tháng**, "
+                "bao gồm hỗ trợ cập nhật và bảo trì miễn phí."
+            )
 
         dispatcher.utter_message(text=msg)
+        
+        # Reset slot để lần hỏi tiếp theo không bị nhầm
         return [SlotSet("warranty_item", None)]
 class ActionPromotionInfo(Action):
     def name(self) -> Text:
@@ -297,16 +345,31 @@ class ActionPromotionInfo(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
+        # Lấy các slot
         promotion_type = tracker.get_slot("promotion_type")
         promotion_event = tracker.get_slot("promotion_event")
         product = tracker.get_slot("product")
 
         # Mặc định
-        msg = "Hiện tại công ty Văn Việt đang có nhiều chương trình ưu đãi hấp dẫn cho khách hàng mới và doanh nghiệp."
+        msg = "Hiện tại công ty Văn Việt đang có nhiều chương trình ưu đãi hấp dẫn cho khách hàng và doanh nghiệp."
 
-        # Xử lý chi tiết
-        if promotion_event:
+        # Ưu tiên product nếu có
+        if product:
+            product_lower = product.lower()
+            if "giáo dục" in product_lower:
+                msg = f"Phần mềm {product} đang **giảm 15% cho gói giáo dục** và tặng 3 tháng bảo trì."
+            elif "erp" in product_lower:
+                msg = f"Phần mềm {product} đang **ưu đãi giảm 10%** cho khách hàng mới."
+            elif "crm" in product_lower:
+                msg = f"Phần mềm {product} hiện đang có **giảm 10% phí bản quyền năm đầu**."
+            else:
+                msg = f"Phần mềm {product} hiện đang được **giảm giá 10%** và tặng gói bảo trì 6 tháng."
+        
+        # Nếu có event ưu đãi đặc biệt
+        elif promotion_event:
             msg = f"Nhân dịp {promotion_event}, công ty đang có **ưu đãi giảm giá 20%** cho tất cả các sản phẩm phần mềm!"
+        
+        # Nếu có loại ưu đãi cụ thể
         elif promotion_type:
             ptype = promotion_type.lower()
             if "khách hàng mới" in ptype or "ưu đãi" in ptype:
@@ -317,10 +380,14 @@ class ActionPromotionInfo(Action):
                 msg = "Khi bạn giới thiệu khách hàng mới, bạn sẽ nhận **voucher 1.000.000đ** hoặc 1 tháng sử dụng miễn phí."
             elif "combo" in ptype:
                 msg = "Combo phần mềm + dịch vụ triển khai hiện đang **giảm 25%** cho doanh nghiệp nhỏ và vừa."
-        elif product:
-            msg = f"Phần mềm {product} hiện đang được **giảm giá 10%** và tặng gói bảo trì 6 tháng."
+        
+        # Nếu không có thông tin gì → hỏi người dùng
+        else:
+            msg = "Hiện tại công ty có nhiều chương trình ưu đãi. Bạn muốn biết ưu đãi theo **sản phẩm** hay theo **sự kiện/loại ưu đãi**?"
 
         dispatcher.utter_message(text=msg)
+
+        # Reset các slot sau khi phản hồi
         return [
             SlotSet("promotion_type", None),
             SlotSet("promotion_event", None),
@@ -338,38 +405,52 @@ class ActionPartnerRequest(Action):
         company = tracker.get_slot("company_name")
         field = tracker.get_slot("collab_field")
 
-        reply = f"Cảm ơn bạn"
-        if company:
-            reply += f" đại diện cho {company}"
-        if partner_type:
-            reply += f" với mong muốn trở thành {partner_type}"
-        if field:
-            reply += f" trong lĩnh vực {field}"
-
-        reply += ". Bộ phận kinh doanh của chúng tôi sẽ liên hệ sớm nhất qua email contact@vanvietsoft.vn."
+        if not any([company, partner_type, field]):
+            reply = ("Cảm ơn bạn đã quan tâm hợp tác. "
+                     "Bạn vui lòng cho chúng tôi xin email để bộ phận kinh doanh liên hệ")
+        else:
+            parts = ["Cảm ơn bạn"]
+            if company:
+                parts.append(f"đại diện cho {company}")
+            if partner_type:
+                parts.append(f"với mong muốn trở thành {partner_type}")
+            if field:
+                parts.append(f"trong lĩnh vực {field}")
+            
+            reply = " ".join(parts)
+            reply += ". Bạn vui lòng cho chúng tôi xin email để bộ phận kinh doanh liên hệ: contact@vanvietsoft.vn."
 
         dispatcher.utter_message(text=reply)
+        
         return [
             SlotSet("partner_type", None),
             SlotSet("company_name", None),
             SlotSet("collab_field", None)
         ]
+
 class ActionAskRemoteSupport(Action):
-    def name(self):
+    def name(self) -> Text:
         return "action_ask_remote_support"
 
-    def run(self, dispatcher: CollectingDispatcher,
+    def run(self,
+            dispatcher: CollectingDispatcher,
             tracker: Tracker,
-            domain: dict):
-        
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
         remote_tool = tracker.get_slot("remote_tool")
+
         if remote_tool:
-            message = f"Dạ, bên mình có thể hỗ trợ qua {remote_tool}. Bạn vui lòng gửi ID và mật khẩu để kỹ thuật viên kết nối nhé."
+            message = (
+                f"Dạ, bên mình có thể hỗ trợ qua {remote_tool}. "
+                "Bạn vui lòng gửi ID và mật khẩu để kỹ thuật viên kết nối nhé."
+            )
         else:
             message = (
-                "Bên mình có hỗ trợ remote qua TeamViewer, AnyDesk hoặc UltraViewer. "
-                "Bạn vui lòng cho biết bạn đang dùng phần mềm nào để mình hỗ trợ phù hợp nhé."
+                "Bên mình hỗ trợ remote qua TeamViewer, AnyDesk hoặc UltraViewer. "
+                "Bạn có thể cho biết bạn đang dùng phần mềm nào và công cụ remote bạn muốn sử dụng để mình hướng dẫn chi tiết."
             )
 
         dispatcher.utter_message(text=message)
+
+        # Reset slot để lần hỏi tiếp theo không bị nhầm
         return [SlotSet("remote_tool", None)]

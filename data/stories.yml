@@ -1,5 +1,10 @@
 version: "3.1"
 stories:
+  - story: chào hỏi
+    steps:
+    - intent: greet
+    - action: utter_greet
+    - action: action_suggest_topics
     
   - story: hỏi thông tin công ty
     steps:
@@ -7,7 +12,7 @@ stories:
     - action: action_company_info
     - action: action_suggest_topics
 
-  - story: trả lời địa chỉ công ty
+  - story: hỏi địa chỉ công ty
     steps:
     - intent: ask_company_location
     - action: action_tell_company_location
@@ -15,76 +20,198 @@ stories:
 
   - story: hỏi giờ làm việc
     steps:
-      - intent: working_hours
-      - action: action_working_hours
-      - action: action_suggest_topics
+    - intent: working_hours
+    - action: action_working_hours
+    - action: action_suggest_topics
 
   - story: hỏi liên hệ
     steps:
     - intent: contact_info
     - action: action_contact_info
     - action: action_suggest_topics
+    
 
-  - story: trả lời thông tin sản phẩm
+  - story: hỏi thông tin sản phẩm
     steps:
     - intent: product_info
     - action: action_product_info
+
+  - story: hỏi thông tin sản phẩm cụ thể
+    steps:
+    - intent: ask_product_info
+    - action: action_product_info
     - action: action_suggest_topics
 
-  - story: pricing chưa có email
+  - story: hỏi báo giá phần mềm
     steps:
-    - intent: pricing
-    - slot_was_set:
-      - email_provided: false
-    - action: utter_ask_email
-  
-  - story: pricing đã có email
-    steps:
-    - intent: pricing
-    - slot_was_set:
-      - email_provided: true
-    - action: action_provide_pricing
+      - intent: pricing
+      - action: action_provide_pricing
+      - slot_was_set:
+          - email_context: pricing
 
-  - story: Lưu email người dùng cung cấp
+  - story: demo phần mềm
     steps:
-    - intent: pricing
-    - action: utter_ask_email
-    - intent: provide_email
-    - slot_was_set:
-        - email_purpose: pricing
-    - action: action_save_email
+      - intent: demo_request
+      - action: action_provide_demo
+      - intent: affirm
+      - action: utter_ask_email_demo
+        # slot_was_set được viết ở dạng step riêng, không phải intent
+      - slot_was_set:
+          - email_context: demo
 
-  - story: Xử lý khi người dùng yêu cầu demo
+  - story: nhận báo giá
     steps:
-    - intent: demo_request
-    - action: action_provide_demo
+      - intent: pricing
+      - action: action_provide_pricing
+      - intent: affirm
+      - action: utter_ask_email
+      - slot_was_set:
+          - email_context: pricing
 
-  - story: demo_request
+  - story: demo phần mềm ERP
     steps:
-    - intent: demo_request
-    - action: action_provide_demo
+      - intent: demo_request
+        entities:
+          - product: "ERP"
+      - action: action_provide_demo
 
-  - story: Người dùng yêu cầu hỗ trợ kỹ thuật
+  - story: demo phần mềm CRM
+    steps:
+      - intent: demo_request
+        entities:
+          - product: "CRM"
+      - action: action_provide_demo
+
+  - story: hỏi hỗ trợ lỗi cài đặt
+    steps:
+      - intent: tech_support
+        entities:
+          - error_type: "cài đặt thất bại"
+      - action: action_tech_support
+
+  - story: hỏi hỗ trợ lỗi mất dữ liệu
+    steps:
+      - intent: tech_support
+        entities:
+          - error_type: "mất dữ liệu"
+      - action: action_tech_support
+
+  - story: hỏi hỗ trợ lỗi hệ thống
+    steps:
+      - intent: tech_support
+        entities:
+          - error_type: "hệ thống"
+      - action: action_tech_support
+
+  - story: hỏi hỗ trợ chung (không có entity cụ thể)
     steps:
       - intent: tech_support
       - action: action_tech_support
 
-  - story: hỏi hỗ trợ remote
-    steps:
-    - intent: ask_remote_support
-    - action: action_ask_remote_support
 
-  - story: Người dùng hỏi về chính sách bảo hành
+  - story: hỏi hỗ trợ remote qua TeamViewer
+    steps:
+      - intent: ask_remote_support
+        entities:
+          - remote_tool: "TeamViewer"
+      - action: action_ask_remote_support
+
+  - story: hỏi hỗ trợ remote qua AnyDesk
+    steps:
+      - intent: ask_remote_support
+        entities:
+          - remote_tool: "AnyDesk"
+      - action: action_ask_remote_support
+
+  - story: hỏi hỗ trợ remote chung (không biết tool)
+    steps:
+      - intent: ask_remote_support
+      - action: action_ask_remote_support
+
+
+  - story: hỏi bảo hành theo item
+    steps:
+      - intent: warranty_policy
+        entities:
+          - warranty_item: "thời gian"
+      - action: action_warranty_policy
+
+  - story: hỏi bảo hành theo item bảo trì
+    steps:
+      - intent: warranty_policy
+        entities:
+          - warranty_item: "bảo trì"
+      - action: action_warranty_policy
+
+  - story: hỏi bảo hành theo item nâng cấp
+    steps:
+      - intent: warranty_policy
+        entities:
+          - warranty_item: "nâng cấp"
+      - action: action_warranty_policy
+
+  - story: hỏi bảo hành theo item phí
+    steps:
+      - intent: warranty_policy
+        entities:
+          - warranty_item: "phí"
+      - action: action_warranty_policy
+
+  - story: hỏi bảo hành chung (không có item cụ thể)
     steps:
       - intent: warranty_policy
       - action: action_warranty_policy
 
-  - story: Trả lời thông tin khuyến mãi
+  - story: hỏi giảm giá theo sản phẩm
     steps:
-      - intent: promotion
-      - action: action_promotion_info
+    - intent: promotion
+      entities:
+        - product: "quản lý giáo dục"
+    - action: action_promotion_info
 
-  - story: hợp tác đối tác
+  - story: hỏi giảm giá theo loại ưu đãi
     steps:
-    - intent: partner_request
-    - action: action_partner_request
+    - intent: promotion
+      entities:
+        - promotion_type: "khách hàng mới"
+    - action: action_promotion_info
+
+  - story: hỏi giảm giá theo sự kiện
+    steps:
+    - intent: promotion
+      entities:
+        - promotion_event: "lễ 20/11"
+    - action: action_promotion_info
+
+  - story: hợp tác theo loại đối tác
+    steps:
+      - intent: partner_request
+        entities:
+          - partner_type: "đại lý"
+      - action: action_partner_request
+
+  - story: hợp tác theo công ty
+    steps:
+      - intent: partner_request
+        entities:
+          - company_name: "Văn Việt"
+      - action: action_partner_request
+
+  - story: hợp tác theo lĩnh vực
+    steps:
+      - intent: partner_request
+        entities:
+          - collab_field: "phát triển phần mềm"
+      - action: action_partner_request
+
+  - story: hợp tác theo kênh liên hệ
+    steps:
+      - intent: partner_request
+        entities:
+          - contact_method: "zalo"
+      - action: action_partner_request
+  
+  - story: goodbye
+    steps:
+    - intent: goodbye
+    - action: utter_goodbye
