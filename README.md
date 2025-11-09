@@ -133,3 +133,6 @@ docker compose exec action_server bash -c "ls -t /app/chat_data | head -n 1"
 ##Sau đó copy:
 
 - docker compose cp action_server:/app/chat_data/+(1) ./+(1)
+
+2. Chạy lại trong container Rasa
+docker compose exec rasa python export_tracker.py

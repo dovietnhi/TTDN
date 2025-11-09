@@ -1,10 +1,19 @@
 FROM rasa/rasa:3.6.20
 
-# Cài thêm thư viện cần thiết cho MongoDB
+# Chuyển sang quyền root để cài thêm gói
+USER root
+
+# Cài sqlite3 để kiểm tra tracker store nội bộ
+RUN apt-get update && apt-get install -y sqlite3
+
+# Cài thêm thư viện MongoDB nếu bạn cần dùng pymongo
 RUN pip install --no-cache-dir pymongo
 
-# Đặt timezone cho Việt Nam (tuỳ chọn)
+# Đặt timezone cho VN
 ENV TZ=Asia/Ho_Chi_Minh
 
-# Chạy Rasa
-CMD ["run", "--enable-api", "--cors", "*"]
+# Quay lại user mặc định của Rasa (bảo mật hơn)
+USER 1001
+
+WORKDIR /app
+COPY . /app

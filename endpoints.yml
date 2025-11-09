@@ -2,7 +2,9 @@ action_endpoint:
   url: "http://action_server:5055/webhook"
 
 tracker_store:
-  type: mongo
-  url: "mongodb://mongodb:27017/rasa"
-  db: rasa
-  collection: conversations
+  type: custom
+  path: "custom.dual_tracker_store.DualTrackerStore"
+  sqlite_path: "/app/data/rasa.db"
+  mongo_url: "mongodb://mongodb:27017/rasa"
+
+

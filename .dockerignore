@@ -1,0 +1,69 @@
+# ========================
+# General system & Git
+# ========================
+.git
+.gitignore
+.vscode
+.idea
+__pycache__/
+*.pyc
+*.pyo
+*.log
+*.tmp
+*.bak
+
+# ========================
+# Python virtual env
+# ========================
+venv/
+.env/
+*.egg-info/
+dist/
+build/
+
+# ========================
+# Node / Frontend
+# ========================
+node_modules/
+npm-debug.log
+yarn.lock
+package-lock.json
+
+# ========================
+# Rasa models & data caches
+# ========================
+models/
+data/nlu_cache/
+results/
+*.tar.gz
+
+# ========================
+# Local data and exports
+# ========================
+app/data/exported_tracker.json
+app/data/exported_conversations.json
+app/data/*.db
+app/data/tmp/
+app/data/cache/
+
+# ========================
+# Docker & misc
+# ========================
+Dockerfile*
+docker-compose*.yml
+*.iml
+*.DS_Store
+
+# ========================
+# Training artifacts
+# ========================
+rasa.db
+events.db
+tracker.db
+*.sqlite
+logs/
+tests/
+*.mp4
+*.png
+*.jpg
+*.jpeg

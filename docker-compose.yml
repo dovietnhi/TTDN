@@ -1,3 +1,5 @@
+version: "3.9"
+
 services:
   rasa:
     build:
@@ -8,17 +10,15 @@ services:
     volumes:
       - ./:/app
       - ./endpoints.yml:/app/endpoints.yml
+      - ./app/data:/app/data   # Rasa sẽ tạo tự động rasa.db
     command:
       - run
       - --enable-api
       - --cors
       - "*"
-    depends_on:
-      - action_server
-      - mongodb
-    environment:
-      - MONGO_URL=mongodb://mongodb:27017/rasa
-      - TZ=Asia/Ho_Chi_Minh
+      - --endpoints
+      - /app/endpoints.yml
+      - --debug
     networks:
       - rasa_network
 
@@ -32,26 +32,10 @@ services:
       - ./chat_data:/app/chat_data
     ports:
       - "5055:5055"
-    depends_on:
-      - mongodb
     environment:
-      - MONGO_URL=mongodb://mongodb:27017/rasa
       - TZ=Asia/Ho_Chi_Minh
     networks:
       - rasa_network
-
-  mongodb:
-    image: mongo:6.0
-    container_name: mongodb
-    ports:
-      - "27017:27017"
-    volumes:
-      - mongo_data:/data/db
-    networks:
-      - rasa_network
-
-volumes:
-  mongo_data:
 
 networks:
   rasa_network:

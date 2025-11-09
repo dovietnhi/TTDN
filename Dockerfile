@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y tzdata && \
 # Cài đặt thư viện với quyền root
 RUN pip install --no-cache-dir -r /app/requirements.txt
 RUN pip install --no-cache-dir pymongo
+
 # Copy thư mục actions
 COPY ./actions /app/actions
 COPY ./scripts /app/scripts
