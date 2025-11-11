@@ -5,12 +5,12 @@ import os
 # ------------------------------
 # Cấu hình kết nối MongoDB
 # ------------------------------
-mongo_host = "chatbot-app-mongodb"  # container MongoDB trong Compose
+mongo_host = "localhost"       # host MongoDB (host Windows)
 mongo_port = 27017
-mongo_db_name = "rasa"               # database bạn dùng trong tracker store
-mongo_collection = "events"          # collection chứa events Webchat
+mongo_db_name = "rasa"
+mongo_collection = "rasa_tracker"
 
-export_path = "/app/data/exported_mongo_conversations.json"  # nơi xuất JSON
+export_path = "./data/exported_mongo_conversations.json"
 
 # ------------------------------
 # Kết nối MongoDB
@@ -22,26 +22,36 @@ collection = db[mongo_collection]
 # ------------------------------
 # Lấy dữ liệu user + bot
 # ------------------------------
-cursor = collection.find({"type_name": {"$in": ["user", "bot"]}}).sort("timestamp", 1)
-
 conversations = {}
 
-for doc in cursor:
+for doc in collection.find():
     sender_id = doc.get("sender_id")
-    type_name = doc.get("type_name")
-    data = doc.get("data", {})
+    if not sender_id:
+        continue
 
-    text = data.get("text", "")
-    if not text:
-        continue  # bỏ event không có text
+    events = doc.get("events", [])
+    for event in events:
+        event_type = event.get("event")
+        if event_type not in ["user", "bot"]:
+            continue
 
-    if sender_id not in conversations:
-        conversations[sender_id] = []
+        # user message
+        if event_type == "user":
+            text = event.get("text", "")
+        # bot message
+        else:
+            text = event.get("text") or event.get("data", {}).get("text", "")
 
-    conversations[sender_id].append({
-        "role": "user" if type_name == "user" else "bot",
-        "text": text
-    })
+        if not text:
+            continue
+
+        if sender_id not in conversations:
+            conversations[sender_id] = []
+
+        conversations[sender_id].append({
+            "role": "user" if event_type == "user" else "bot",
+            "text": text
+        })
 
 # ------------------------------
 # Chuyển sang danh sách JSON

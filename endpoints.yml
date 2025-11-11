@@ -2,8 +2,10 @@ action_endpoint:
   url: "http://action_server:5055/webhook"
 
 tracker_store:
-  type: custom
-  path: "custom.dual_tracker_store.DualTrackerStore"
-  sqlite_path: "/app/data/rasa.db"
-
-
+  type: mongod
+  url: mongo       # hostname container MongoDB
+  db: rasa
+  username: ""     # bỏ trống
+  password: ""     # bỏ trống
+  auth_source: ""  # bỏ trống
+  collection: rasa_tracker

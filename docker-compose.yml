@@ -1,6 +1,18 @@
 version: "3.9"
 
 services:
+  mongo:
+    image: mongo:6.0
+    container_name: rasa_mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    # Không đặt username/password → MongoDB chạy chế độ không auth
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - rasa_network
+
   rasa:
     build:
       context: .
@@ -11,7 +23,7 @@ services:
       - ./:/app
       - ./data:/app/data
       - ./endpoints.yml:/app/endpoints.yml
-      - ./app/data:/app/data   # Rasa sẽ tạo tự động rasa.db
+      - ./app/data:/app/data  
     command:
       - run
       - --enable-api
@@ -20,6 +32,8 @@ services:
       - --endpoints
       - /app/endpoints.yml
       - --debug
+    depends_on:
+      - mongo
     networks:
       - rasa_network
 
@@ -37,6 +51,9 @@ services:
       - TZ=Asia/Ho_Chi_Minh
     networks:
       - rasa_network
+
+volumes:
+  mongo_data:
 
 networks:
   rasa_network:

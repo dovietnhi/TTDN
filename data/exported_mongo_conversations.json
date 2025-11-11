@@ -1,0 +1,39 @@
+[
+    {
+        "sender_id": "3d56adbfa135495893d458c13afdeb27",
+        "conversation": [
+            {
+                "role": "user",
+                "text": "/working_hours"
+            },
+            {
+                "role": "bot",
+                "text": "Công ty V2S làm việc từ 8h00 đến 17h00, từ thứ 2 đến thứ 6 hàng tuần."
+            },
+            {
+                "role": "bot",
+                "text": "Mình chưa có gợi ý lúc này."
+            },
+            {
+                "role": "user",
+                "text": "hi"
+            },
+            {
+                "role": "bot",
+                "text": "Chào mừng bạn đến với V2S! Mình là trợ lý ảo, bạn cần hỗ trợ gì về sản phẩm hoặc dịch vụ không?"
+            },
+            {
+                "role": "bot",
+                "text": "Bạn có muốn hỏi thêm về:"
+            },
+            {
+                "role": "user",
+                "text": "/affirm"
+            },
+            {
+                "role": "bot",
+                "text": "Vui lòng cho mình xin email để gửi link demo và tài liệu hướng dẫn nhé."
+            }
+        ]
+    }
+]

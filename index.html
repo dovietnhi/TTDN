@@ -21,27 +21,23 @@
   <body>
     <div id="webchat"></div>
     <script>
-      function saveMessageLocal(sender, message) {
-      const chat = JSON.parse(localStorage.getItem('chatHistory_v1')) || []; 
-      chat.push({ sender, message, time: new Date().toISOString() }); 
-      localStorage.setItem('chatHistory_v1', JSON.stringify(chat)); 
-    }
-// --- Khởi động chatbot ---
-window.WebChat.default({
-  initPayload: '/greet',
-  socketUrl: 'http://localhost:5005',
-  socketPath: '/socket.io/',
-  title: 'Rasa Chatbot',
-  subtitle: 'Xin chào!',
-  params: { storage: "local" },
-  onSocketEvent: {
-    
-    'user_uttered': (e) => { if (e?.text) saveMessageLocal('Bạn', e.text); },
-    'bot_uttered': (e) => { if (e?.text) saveMessageLocal('Bot', e.text); }
-  }
-}, null);
+      // --- Khởi động chatbot ---
+      window.WebChat.default({
+        initPayload: '/greet',
+        socketUrl: 'http://localhost:5005',
+        socketPath: '/socket.io/',
+        title: 'Rasa Chatbot',
+        subtitle: 'Xin chào!',
+        params: { storage: "session" } // hoặc "memory" nếu không cần lưu
+      },
+       null);
+       window.WebChat.default.on("user_uttered", function(msg){
+        console.log("User typed:", msg);
+      });
 
-</script>
-
+      window.WebChat.default.on("bot_uttered", function(msg){
+        console.log("Bot replied:", msg);
+      });
+    </script>
   </body>
 </html>
