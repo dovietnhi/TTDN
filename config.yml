@@ -12,12 +12,18 @@ pipeline:
   - name: EntitySynonymMapper
   - name: ResponseSelector
     epochs: 100
-  
+  - name: FallbackClassifier
+    threshold: 0.3
+    ambiguity_threshold: 0.1
 
 policies:
-- name: MemoizationPolicy
-- name: RulePolicy
-- name: TEDPolicy
-  epochs: 100
-  max_history: 5
+  - name: MemoizationPolicy
+  - name: RulePolicy
+    core_fallback_threshold: 0.3
+    core_fallback_action_name: "action_handle_fallback"
+    enable_fallback_prediction: true
+  - name: TEDPolicy
+    epochs: 100
+    max_history: 5
+
 assistant_id: 20251106-082418-short-module

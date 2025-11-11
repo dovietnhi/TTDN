@@ -454,3 +454,77 @@ class ActionAskRemoteSupport(Action):
 
         # Reset slot để lần hỏi tiếp theo không bị nhầm
         return [SlotSet("remote_tool", None)]
+
+
+import csv
+import os
+from typing import Any, Text, Dict, List, Optional
+
+from rasa_sdk import Action, Tracker
+from rasa_sdk.executor import CollectingDispatcher
+from rasa_sdk.events import SlotSet
+
+LOG_FILE = "unrecognized.csv"
+
+def log_unrecognized(utterance: Text, predicted_intent: Optional[Text], confidence: Optional[float]):
+    header = ["utterance", "predicted_intent", "confidence"]
+    exists = os.path.exists(LOG_FILE)
+    with open(LOG_FILE, mode="a", encoding="utf-8", newline="") as f:
+        writer = csv.writer(f)
+        if not exists:
+            writer.writerow(header)
+        writer.writerow([utterance, predicted_intent if predicted_intent else "", confidence if confidence else ""])
+
+class ActionHandleFallback(Action):
+    def name(self) -> Text:
+        return "action_handle_fallback"
+
+    async def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
+
+        # read previous fallback count
+        fallback_count = tracker.get_slot("fallback_count") or 0
+        fallback_count = int(fallback_count) + 1
+
+        last_user_utterance = tracker.latest_message.get("text")
+        # best guess intent + confidence if available
+        intent = None
+        confidence = None
+        intent_ranking = tracker.latest_message.get("intent_ranking")
+        if intent_ranking and len(intent_ranking) > 0:
+            intent = intent_ranking[0].get("name")
+            confidence = intent_ranking[0].get("confidence")
+
+        # log for active learning
+        try:
+            log_unrecognized(last_user_utterance, intent, confidence)
+        except Exception as e:
+            # don't fail entire action if logging fails
+            print(f"[action_handle_fallback] logging failed: {e}")
+
+        # Responses by fallback_count
+        if fallback_count == 1:
+            # First fallback: ask for clarification
+            dispatcher.utter_message(response="utter_fallback_first")
+            # optionally ask a targeted clarification
+            # you can also ask a specific question depending on context
+            return [SlotSet("fallback_count", fallback_count)]
+        elif fallback_count == 2:
+            # Second fallback: provide suggestions / quick-replies
+            buttons = [
+                {"title": "Xem sản phẩm", "payload": "/ask_product"},
+                {"title": "Yêu cầu báo giá", "payload": "/ask_price"},
+                {"title": "Yêu cầu demo", "payload": "/request_demo"},
+                {"title": "Hỗ trợ kỹ thuật", "payload": "/support_tech"}
+            ]
+            dispatcher.utter_message(response="utter_fallback_second", buttons=buttons)
+            return [SlotSet("fallback_count", fallback_count)]
+        else:
+            # Third fallback or more: escalate to human / contact info
+            dispatcher.utter_message(response="utter_fallback_third")
+            # reset counter after escalation
+            return [SlotSet("fallback_count", 0), SlotSet("escalated_from_fallback", True)]

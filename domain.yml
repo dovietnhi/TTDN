@@ -18,6 +18,7 @@ intents:
   - affirm
   - provide_email
   - ask_product_info
+  - nlu_fallback
   
 entities:
   - product
@@ -43,6 +44,18 @@ entities:
   - remote_tool
 
 slots:
+  fallback_count:
+    type: any
+    influence_conversation: false
+    mappings:
+      - type: custom  # 👈 thêm dòng này để hợp lệ
+
+  escalated_from_fallback:
+    type: any
+    influence_conversation: false
+    mappings:
+      - type: custom
+
   contact_type:
     type: text
     influence_conversation: true
@@ -197,6 +210,14 @@ slots:
         entity: error_type
     
 responses:
+  utter_fallback_first:
+    - text: "Mình chưa hiểu rõ lắm ý bạn. Bạn có thể nói lại cụ thể hơn được không?"
+  utter_fallback_second:
+    - text: "Mình chưa chắc lắm. Bạn thử chọn một trong các lựa chọn sau để mình giúp nhanh hơn nhé:"
+  utter_fallback_third:
+    - text: "Mình xin lỗi vì vẫn chưa hiểu. Mình sẽ chuyển bạn sang đội hỗ trợ. Bạn muốn mình gửi email hay chat trực tiếp?"
+  utter_help_contact:
+    - text: "Bạn có thể liên hệ: hotline 0123-456-789 hoặc email support@company.vn"
   utter_greet:
     - text: "Chào bạn 👋! Mình là chatbot hỗ trợ khách hàng của công ty V2S. Mình có thể giúp gì cho bạn hôm nay?"
     - text: "Xin chào! Mình là trợ lý ảo của V2S. Bạn cần hỗ trợ gì ạ?"
@@ -377,3 +398,4 @@ actions:
   - action_promotion_info
   - action_partner_request
   - action_ask_remote_support
+  - action_handle_fallback

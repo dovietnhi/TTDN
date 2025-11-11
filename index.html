@@ -35,6 +35,7 @@ window.WebChat.default({
   subtitle: 'Xin chào!',
   params: { storage: "local" },
   onSocketEvent: {
+    
     'user_uttered': (e) => { if (e?.text) saveMessageLocal('Bạn', e.text); },
     'bot_uttered': (e) => { if (e?.text) saveMessageLocal('Bot', e.text); }
   }

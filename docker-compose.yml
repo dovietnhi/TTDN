@@ -9,6 +9,7 @@ services:
       - "5005:5005"
     volumes:
       - ./:/app
+      - ./data:/app/data
       - ./endpoints.yml:/app/endpoints.yml
       - ./app/data:/app/data   # Rasa sẽ tạo tự động rasa.db
     command:

@@ -215,3 +215,8 @@ stories:
     steps:
     - intent: goodbye
     - action: utter_goodbye
+
+  - story: Handle NLU fallback
+    steps:
+    - intent: nlu_fallback
+    - action: action_handle_fallback
