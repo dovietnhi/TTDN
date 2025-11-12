@@ -1,0 +1,6 @@
+version: "3.1"
+stories:
+- story: test hợp tác đối tác (data\test_stories.yml)
+  steps:
+  - intent: partner_request
+  - action: action_partner_request  # predicted: action_provide_demo

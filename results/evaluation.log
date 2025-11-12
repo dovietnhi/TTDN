@@ -1,0 +1,63 @@
+C:\Users\dovie\AppData\Local\Programs\Python\Python310\lib\site-packages\rasa\core\tracker_store.py:1044: MovedIn20Warning: Deprecated API features detected! These feature(s) are not compatible with SQLAlchemy 2.0. To prevent incompatible upgrades prior to updating applications, ensure requirements files are pinned to "sqlalchemy<2.0". Set environment variable SQLALCHEMY_WARN_20=1 to show all deprecation warnings.  Set environment variable SQLALCHEMY_SILENCE_UBER_WARNING=1 to silence this message. (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)
+  Base: DeclarativeMeta = declarative_base()
+C:\Users\dovie\AppData\Local\Programs\Python\Python310\lib\site-packages\rasa\shared\utils\validation.py:134: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+  import pkg_resources
+C:\Users\dovie\AppData\Local\Programs\Python\Python310\lib\site-packages\pkg_resources\__init__.py:3117: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('mpl_toolkits')`.
+Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages
+  declare_namespace(pkg)
+C:\Users\dovie\AppData\Local\Programs\Python\Python310\lib\site-packages\pkg_resources\__init__.py:3117: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('ruamel')`.
+Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages
+  declare_namespace(pkg)
+C:\Users\dovie\AppData\Local\Programs\Python\Python310\lib\site-packages\tensorflow\lite\python\util.py:52: DeprecationWarning: jax.xla_computation is deprecated. Please use the AOT APIs.
+  from jax import xla_computation as _xla_computation
+[93mC:\Users\dovie\AppData\Local\Programs\Python\Python310\lib\site-packages\rasa\shared\utils\io.py:99: UserWarning: The path 'test_stories.yml' does not seem to exist. Using the default value 'data' instead.
+[0m2025-11-12 17:28:21 [1;30mINFO    [0m [34mrasa.core.processor[0m  - Loading model models\20251111-085408-obvious-edge.tar.gz...
+[93mC:\Users\dovie\AppData\Local\Programs\Python\Python310\lib\site-packages\rasa\utils\train_utils.py:530: UserWarning: constrain_similarities is set to `False`. It is recommended to set it to `True` when using cross-entropy loss.
+  rasa.shared.utils.io.raise_warning(
+[0mProcessed story blocks:   0%|          | 0/46 [00:00<?, ?it/s]Processed story blocks:   0%|          | 0/46 [00:00<?, ?it/s, # trackers=1]Processed story blocks:   0%|          | 0/46 [00:00<?, ?it/s, # trackers=1]Processed story blocks:   0%|          | 0/46 [00:00<?, ?it/s, # trackers=1]Processed story blocks:   0%|          | 0/46 [00:00<?, ?it/s, # trackers=1]Processed story blocks:   0%|          | 0/46 [00:00<?, ?it/s, # trackers=1]Processed story blocks:   0%|          | 0/46 [00:00<?, ?it/s, # trackers=1]Processed story blocks:   0%|          | 0/46 [00:00<?, ?it/s, # trackers=1]Processed story blocks:   0%|          | 0/46 [00:00<?, ?it/s, # trackers=1]Processed story blocks:   0%|          | 0/46 [00:00<?, ?it/s, # trackers=1]Processed story blocks:   0%|          | 0/46 [00:00<?, ?it/s, # trackers=1]Processed story blocks:   0%|          | 0/46 [00:00<?, ?it/s, # trackers=1]Processed story blocks:   0%|          | 0/46 [00:00<?, ?it/s, # trackers=1]Processed story blocks:   0%|          | 0/46 [00:00<?, ?it/s, # trackers=1]Processed story blocks:   0%|          | 0/46 [00:00<?, ?it/s, # trackers=1]Processed story blocks:   0%|          | 0/46 [00:00<?, ?it/s, # trackers=1]Processed story blocks:   0%|          | 0/46 [00:00<?, ?it/s, # trackers=1]Processed story blocks:   0%|          | 0/46 [00:00<?, ?it/s, # trackers=1]Processed story blocks:   0%|          | 0/46 [00:00<?, ?it/s, # trackers=1]Processed story blocks:   0%|          | 0/46 [00:00<?, ?it/s, # trackers=1]Processed story blocks:   0%|          | 0/46 [00:00<?, ?it/s, # trackers=1]Processed story blocks:   0%|          | 0/46 [00:00<?, ?it/s, # trackers=1]Processed story blocks:   0%|          | 0/46 [00:00<?, ?it/s, # trackers=1]Processed story blocks:   0%|          | 0/46 [00:00<?, ?it/s, # trackers=1]Processed story blocks:   0%|          | 0/46 [00:00<?, ?it/s, # trackers=1]Processed story blocks:   0%|          | 0/46 [00:00<?, ?it/s, # trackers=1]Processed story blocks:   0%|          | 0/46 [00:00<?, ?it/s, # trackers=1]Processed story blocks:   0%|          | 0/46 [00:00<?, ?it/s, # trackers=1]Processed story blocks:   0%|          | 0/46 [00:00<?, ?it/s, # trackers=1]Processed story blocks:   0%|          | 0/46 [00:00<?, ?it/s, # trackers=1]Processed story blocks:   0%|          | 0/46 [00:00<?, ?it/s, # trackers=1]Processed story blocks:   0%|          | 0/46 [00:00<?, ?it/s, # trackers=1]Processed story blocks:   0%|          | 0/46 [00:00<?, ?it/s, # trackers=1]Processed story blocks:   0%|          | 0/46 [00:00<?, ?it/s, # trackers=1]Processed story blocks:   0%|          | 0/46 [00:00<?, ?it/s, # trackers=1]Processed story blocks:   0%|          | 0/46 [00:00<?, ?it/s, # trackers=1]Processed story blocks:   0%|          | 0/46 [00:00<?, ?it/s, # trackers=1]Processed story blocks:   0%|          | 0/46 [00:00<?, ?it/s, # trackers=1]Processed story blocks:   0%|          | 0/46 [00:00<?, ?it/s, # trackers=1]Processed story blocks:   0%|          | 0/46 [00:00<?, ?it/s, # trackers=1]Processed story blocks:   0%|          | 0/46 [00:00<?, ?it/s, # trackers=1]Processed story blocks:   0%|          | 0/46 [00:00<?, ?it/s, # trackers=1]Processed story blocks:   0%|          | 0/46 [00:00<?, ?it/s, # trackers=1]Processed story blocks:   0%|          | 0/46 [00:00<?, ?it/s, # trackers=1]Processed story blocks:   0%|          | 0/46 [00:00<?, ?it/s, # trackers=1]Processed story blocks:   0%|          | 0/46 [00:00<?, ?it/s, # trackers=1]Processed story blocks:   0%|          | 0/46 [00:00<?, ?it/s, # trackers=1]Processed story blocks: 100%|##########| 46/46 [00:00<00:00, 2944.00it/s, # trackers=1]
+2025-11-12 17:29:10 [1;30mINFO    [0m [34mrasa.core.test[0m  - Evaluating 39 stories
+Progress:
+  0%|          | 0/39 [00:00<?, ?it/s] 13%|#2        | 5/39 [00:00<00:00, 43.08it/s] 36%|###5      | 14/39 [00:00<00:00, 65.56it/s] 54%|#####3    | 21/39 [00:00<00:00, 66.80it/s] 72%|#######1  | 28/39 [00:00<00:00, 57.55it/s] 90%|########9 | 35/39 [00:00<00:00, 60.14it/s]100%|##########| 39/39 [00:00<00:00, 59.21it/s]
+2025-11-12 17:29:10 [1;30mINFO    [0m [34mrasa.core.test[0m  - Finished collecting predictions.
+2025-11-12 17:29:10 [1;30mINFO    [0m [34mrasa.core.test[0m  - Evaluation Results on CONVERSATION level:
+2025-11-12 17:29:10 [1;30mINFO    [0m [34mrasa.core.test[0m  - 	Correct:          38 / 39
+2025-11-12 17:29:10 [1;30mINFO    [0m [34mrasa.core.test[0m  - 	Accuracy:         0.974
+2025-11-12 17:29:10 [1;30mINFO    [0m [34mrasa.core.test[0m  - Stories report saved to results\story_report.json.
+2025-11-12 17:29:10 [1;30mINFO    [0m [34mrasa.nlu.test[0m  - Evaluation for entity extractor: TEDPolicy 
+2025-11-12 17:29:10 [1;30mWARNING [0m [34mrasa.model_testing[0m  - [33mNo labels to evaluate. Skip evaluation.[0m
+2025-11-12 17:29:10 [1;30mINFO    [0m [34mrasa.nlu.test[0m  - Classification report saved to results\TEDPolicy_report.json.
+2025-11-12 17:29:10 [1;30mINFO    [0m [34mrasa.nlu.test[0m  - Every entity was predicted correctly by the model.
+C:\Users\dovie\AppData\Local\Programs\Python\Python310\lib\site-packages\rasa\utils\plotting.py:103: UserWarning: Attempting to set identical left == right == -0.5 results in singular transformations; automatically expanding.
+  plt.imshow(
+C:\Users\dovie\AppData\Local\Programs\Python\Python310\lib\site-packages\rasa\utils\plotting.py:103: UserWarning: Attempting to set identical bottom == top == -0.5 results in singular transformations; automatically expanding.
+  plt.imshow(
+2025-11-12 17:29:11 [1;30mINFO    [0m [34mrasa.utils.plotting[0m  - Confusion matrix, without normalization: 
+[]
+2025-11-12 17:29:12 [1;30mINFO    [0m [34mrasa.core.test[0m  - Evaluation Results on ACTION level:
+2025-11-12 17:29:12 [1;30mINFO    [0m [34mrasa.core.test[0m  - 	Correct:          94 / 95
+2025-11-12 17:29:12 [1;30mINFO    [0m [34mrasa.core.test[0m  - 	F1-Score:         0.990
+2025-11-12 17:29:12 [1;30mINFO    [0m [34mrasa.core.test[0m  - 	Precision:        0.992
+2025-11-12 17:29:12 [1;30mINFO    [0m [34mrasa.core.test[0m  - 	Accuracy:         0.989
+2025-11-12 17:29:12 [1;30mINFO    [0m [34mrasa.core.test[0m  - 	In-data fraction: 0
+2025-11-12 17:29:12 [1;30mINFO    [0m [34mrasa.utils.plotting[0m  - Confusion matrix, without normalization: 
+[[ 3  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0]
+ [ 0  2  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0]
+ [ 0  0  2  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0]
+ [ 0  0  0  1  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0]
+ [ 0  0  0  0 42  0  0  0  0  0  0  0  0  0  0  0  0  0  0]
+ [ 0  0  0  0  0  4  0  0  1  0  0  0  0  0  0  0  0  0  0]
+ [ 0  0  0  0  0  0  2  0  0  0  0  0  0  0  0  0  0  0  0]
+ [ 0  0  0  0  0  0  0  4  0  0  0  0  0  0  0  0  0  0  0]
+ [ 0  0  0  0  0  0  0  0  3  0  0  0  0  0  0  0  0  0  0]
+ [ 0  0  0  0  0  0  0  0  0  3  0  0  0  0  0  0  0  0  0]
+ [ 0  0  0  0  0  0  0  0  0  0 11  0  0  0  0  0  0  0  0]
+ [ 0  0  0  0  0  0  0  0  0  0  0  3  0  0  0  0  0  0  0]
+ [ 0  0  0  0  0  0  0  0  0  0  0  0  2  0  0  0  0  0  0]
+ [ 0  0  0  0  0  0  0  0  0  0  0  0  0  3  0  0  0  0  0]
+ [ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  2  0  0  0  0]
+ [ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  1  0  0  0]
+ [ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  2  0  0]
+ [ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  2  0]
+ [ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  2]]
+Failed stories written to 'results\failed_test_stories.yml'
+Stories with prediction warnings written to 'results\stories_with_warnings.yml'

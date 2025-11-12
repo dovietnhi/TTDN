@@ -1,0 +1,111 @@
+version: "3.1"
+stories:
+  - story: test chào hỏi
+    steps:
+      - user: |
+          Xin chào
+        intent: greet
+      - action: utter_greet
+      - action: action_suggest_topics
+
+  - story: test hỏi thông tin công ty
+    steps:
+      - user: |
+          Cho mình hỏi thông tin công ty
+        intent: company_info
+      - action: action_company_info
+      - action: action_suggest_topics
+
+  - story: test hỏi địa chỉ công ty
+    steps:
+      - user: |
+          Địa chỉ công ty ở đâu
+        intent: ask_company_location
+      - action: action_tell_company_location
+      - action: action_suggest_topics
+
+  - story: test hỏi giờ làm việc
+    steps:
+      - user: |
+          Công ty làm việc giờ nào
+        intent: working_hours
+      - action: action_working_hours
+      - action: action_suggest_topics
+
+  - story: test hỏi liên hệ
+    steps:
+      - user: |
+          Cách liên hệ công ty là gì
+        intent: contact_info
+      - action: action_contact_info
+      - action: action_suggest_topics
+
+  - story: test hỏi báo giá
+    steps:
+      - user: |
+          Cho tôi xin báo giá phần mềm
+        intent: pricing
+      - action: action_provide_pricing
+      - slot_was_set:
+          - email_context: pricing
+
+  - story: test yêu cầu demo
+    steps:
+      - user: |
+          Tôi muốn demo phần mềm
+        intent: demo_request
+      - action: action_provide_demo
+      - user: |
+          Vâng, tôi đồng ý
+        intent: affirm
+      - action: utter_ask_email_demo
+      - slot_was_set:
+          - email_context: demo
+
+  - story: test hỏi hỗ trợ kỹ thuật
+    steps:
+      - user: |
+          Phần mềm bị lỗi hệ thống
+        intent: tech_support
+        entities:
+          - error_type: "hệ thống"
+      - action: action_tech_support
+
+  - story: test hỏi bảo hành
+    steps:
+      - user: |
+          Chính sách bảo hành như thế nào
+        intent: warranty_policy
+      - action: action_warranty_policy
+
+  - story: test hỏi khuyến mãi
+    steps:
+      - user: |
+          Có chương trình khuyến mãi nào không
+        intent: promotion
+      - action: action_promotion_info
+
+  - story: test hợp tác đối tác
+    steps:
+      - user: |
+          Tôi muốn làm đại lý hợp tác
+        intent: partner_request
+        entities:
+          - partner_type: "đại lý"
+      - action: action_partner_request
+
+  - story: test hỏi hỗ trợ remote
+    steps:
+      - user: |
+          Có thể hỗ trợ qua TeamViewer không
+        intent: ask_remote_support
+        entities:
+          - remote_tool: "TeamViewer"
+      - action: action_ask_remote_support
+
+  - story: test tạm biệt
+    steps:
+      - user: |
+          Tạm biệt nhé
+        intent: goodbye
+      - action: utter_goodbye
