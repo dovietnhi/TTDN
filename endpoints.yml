@@ -3,9 +3,9 @@ action_endpoint:
 
 tracker_store:
   type: mongod
-  url: mongo       # hostname container MongoDB
+  url: mongo       
   db: rasa
-  username: ""     # bỏ trống
-  password: ""     # bỏ trống
-  auth_source: ""  # bỏ trống
+  username: ""     
+  password: ""     
+  auth_source: ""  
   collection: rasa_tracker
